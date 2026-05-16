@@ -188,8 +188,8 @@ mod gen {
             let ty = integer_type(bitfield.size);
 
             writeln!(w, "/// Bitfield on register `{}`", register.name)?;
-            writeln!(w, "pub const {}: *mut {} = {:#X} as *mut {};",
-                     bitfield.name, ty, bitfield.mask, ty)?;
+            writeln!(w, "pub const {}: {} = {:#X};",
+                     bitfield.name, ty, bitfield.mask)?;
             writeln!(w)?;
 
         }
