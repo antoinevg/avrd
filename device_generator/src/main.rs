@@ -81,7 +81,7 @@ mod gen {
         writeln!(mod_rs, "// Device definitions")?;
         writeln!(mod_rs)?;
         for module_name in module_names {
-            if module_name == crate::DEFAULT_MCU_FOR_NON_AVR {
+            if false { // module_name == crate::DEFAULT_MCU_FOR_NON_AVR {
                 writeln!(mod_rs, "/// The module containing the values for the '{}' microcontroller", module_name)?;
                 writeln!(mod_rs, "///")?;
                 writeln!(mod_rs, "/// This is the default MCU when targeting a non-AVR target.")?;
@@ -97,10 +97,11 @@ mod gen {
                          module_name, module_name)?;
             } else {
                 writeln!(mod_rs, "/// The module containing the values for the '{}' microcontroller", module_name)?;
-                writeln!(mod_rs, "#[cfg(any(avr_mcu_{}, feature = \"all-mcus\"))] pub mod {};", module_name, module_name)?;
-                writeln!(mod_rs, "/// {} **This is currently the '{}'**.", CURRENT_MOD_SUMMARY, module_name)?;
-                writeln!(mod_rs, "#[cfg(all(target_arch = \"avr\", avr_mcu_{}))] pub mod current {{ pub use super::{}::*; }}",
-                         module_name, module_name)?;
+                //writeln!(mod_rs, "#[cfg(any(avr_mcu_{}, feature = \"all-mcus\"))] pub mod {};", module_name, module_name)?;
+                //writeln!(mod_rs, "/// {} **This is currently the '{}'**.", CURRENT_MOD_SUMMARY, module_name)?;
+                //writeln!(mod_rs, "#[cfg(all(target_arch = \"avr\", avr_mcu_{}))] pub mod current {{ pub use super::{}::*; }}",
+                //module_name, module_name)?;
+                writeln!(mod_rs, "pub mod {};", module_name)?;
             }
             writeln!(mod_rs)?;
         }
