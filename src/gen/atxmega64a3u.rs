@@ -11,20 +11,57 @@
 
 #![allow(non_upper_case_globals)]
 
+/// General Power Reduction.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | DMA | 1 |
+/// | RTC | 100 |
+/// | USB | 1000000 |
+/// | AES | 10000 |
+/// | EVSYS | 10 |
+pub const PRGEN: *mut u8 = 0x0 as *mut u8;
+
+/// Analog Comparator 0 Control.
+pub const AC0CTRL: *mut u8 = 0x0 as *mut u8;
+
 /// Lock Bits.
 ///
 /// Bitfields:
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | BLBAT | 1100 |
-/// | LB | 11 |
-/// | BLBB | 11000000 |
 /// | BLBA | 110000 |
+/// | LB | 11 |
+/// | BLBAT | 1100 |
+/// | BLBB | 11000000 |
 pub const LOCKBITS: *mut u8 = 0x0 as *mut u8;
+
+/// Device ID byte 0.
+pub const DEVID0: *mut u8 = 0x0 as *mut u8;
+
+/// OCD Register 0.
+pub const OCDR0: *mut u8 = 0x0 as *mut u8;
+
+/// JTAG User ID.
+pub const FUSEBYTE0: *mut u8 = 0x0 as *mut u8;
+
+/// I/O Port Data Direction.
+pub const DIR: *mut u8 = 0x0 as *mut u8;
 
 /// Event Channel 0 Multiplexer.
 pub const CH0MUX: *mut u8 = 0x0 as *mut u8;
+
+/// Multi-pin Configuration Mask.
+pub const MPCMASK: *mut u8 = 0x0 as *mut u8;
+
+/// Address Register 0.
+pub const ADDR0: *mut u8 = 0x0 as *mut u8;
+
+/// Control Register.
+pub const CTRL: *mut u8 = 0x0 as *mut u8;
 
 /// General Purpose IO Register 0.
 pub const GPIOR0: *mut u8 = 0x0 as *mut u8;
@@ -32,48 +69,24 @@ pub const GPIOR0: *mut u8 = 0x0 as *mut u8;
 /// RCOSC 2 MHz Calibration Value B.
 pub const RCOSC2M: *mut u8 = 0x0 as *mut u8;
 
-/// I/O Port Data Direction.
-pub const DIR: *mut u8 = 0x0 as *mut u8;
+/// Power Reduction Port A.
+pub const PRPA: *mut u8 = 0x1 as *mut u8;
 
-/// Device ID byte 0.
-pub const DEVID0: *mut u8 = 0x0 as *mut u8;
+/// Device ID byte 1.
+pub const DEVID1: *mut u8 = 0x1 as *mut u8;
 
-/// JTAG User ID.
-pub const FUSEBYTE0: *mut u8 = 0x0 as *mut u8;
+/// I/O Port Data Direction Set.
+pub const DIRSET: *mut u8 = 0x1 as *mut u8;
 
-/// Address Register 0.
-pub const ADDR0: *mut u8 = 0x0 as *mut u8;
-
-/// OCD Register 0.
-pub const OCDR0: *mut u8 = 0x0 as *mut u8;
-
-/// General Power Reduction.
+/// Prescaler Control Register.
 ///
 /// Bitfields:
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | EVSYS | 10 |
-/// | USB | 1000000 |
-/// | RTC | 100 |
-/// | DMA | 1 |
-/// | AES | 10000 |
-pub const PRGEN: *mut u8 = 0x0 as *mut u8;
-
-/// Control Register.
-pub const CTRL: *mut u8 = 0x0 as *mut u8;
-
-/// Analog Comparator 0 Control.
-pub const AC0CTRL: *mut u8 = 0x0 as *mut u8;
-
-/// Multi-pin Configuration Mask.
-pub const MPCMASK: *mut u8 = 0x0 as *mut u8;
-
-/// General Purpose IO Register 1.
-pub const GPIOR1: *mut u8 = 0x1 as *mut u8;
-
-/// I/O Port Data Direction Set.
-pub const DIRSET: *mut u8 = 0x1 as *mut u8;
+/// | PSBCDIV | 11 |
+/// | PSADIV | 1111100 |
+pub const PSCTRL: *mut u8 = 0x1 as *mut u8;
 
 /// MUX Control.
 ///
@@ -84,21 +97,11 @@ pub const DIRSET: *mut u8 = 0x1 as *mut u8;
 /// | MUXINT | 1111000 |
 pub const MUXCTRL: *mut u8 = 0x1 as *mut u8;
 
-/// Power Reduction Port A.
-pub const PRPA: *mut u8 = 0x1 as *mut u8;
+/// OCD Register 1.
+pub const OCDR1: *mut u8 = 0x1 as *mut u8;
 
-/// Prescaler Control Register.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | PSADIV | 1111100 |
-/// | PSBCDIV | 11 |
-pub const PSCTRL: *mut u8 = 0x1 as *mut u8;
-
-/// Event Channel 1 Multiplexer.
-pub const CH1MUX: *mut u8 = 0x1 as *mut u8;
+/// General Purpose IO Register 1.
+pub const GPIOR1: *mut u8 = 0x1 as *mut u8;
 
 /// Watchdog Configuration.
 ///
@@ -110,17 +113,11 @@ pub const CH1MUX: *mut u8 = 0x1 as *mut u8;
 /// | WDP | 1111 |
 pub const FUSEBYTE1: *mut u8 = 0x1 as *mut u8;
 
-/// Device ID byte 1.
-pub const DEVID1: *mut u8 = 0x1 as *mut u8;
+/// Address Register 1.
+pub const ADDR1: *mut u8 = 0x1 as *mut u8;
 
-/// Interrupt Control Register.
-pub const INTCTRL: *mut u8 = 0x1 as *mut u8;
-
-/// OCD Register 1.
-pub const OCDR1: *mut u8 = 0x1 as *mut u8;
-
-/// RCOSC 2 MHz Calibration Value A.
-pub const RCOSC2MA: *mut u8 = 0x1 as *mut u8;
+/// Event Channel 1 Multiplexer.
+pub const CH1MUX: *mut u8 = 0x1 as *mut u8;
 
 /// Interrupt Priority.
 pub const INTPRI: *mut u8 = 0x1 as *mut u8;
@@ -131,8 +128,42 @@ pub const AC1CTRL: *mut u8 = 0x1 as *mut u8;
 /// IrDA Transmitter Pulse Length Control Register.
 pub const TXPLCTRL: *mut u8 = 0x1 as *mut u8;
 
-/// Address Register 1.
-pub const ADDR1: *mut u8 = 0x1 as *mut u8;
+/// RCOSC 2 MHz Calibration Value A.
+pub const RCOSC2MA: *mut u8 = 0x1 as *mut u8;
+
+/// Interrupt Control Register.
+pub const INTCTRL: *mut u8 = 0x1 as *mut u8;
+
+/// General Purpose IO Register 2.
+pub const GPIOR2: *mut u8 = 0x2 as *mut u8;
+
+/// RCOSC 32.768 kHz Calibration Value.
+pub const RCOSC32K: *mut u8 = 0x2 as *mut u8;
+
+/// External Oscillator Control Register.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | XOSCPWR | 10000 |
+/// | FRQRANGE | 11000000 |
+/// | X32KLPM | 100000 |
+/// | XOSCSEL | 1111 |
+pub const XOSCCTRL: *mut u8 = 0x2 as *mut u8;
+
+/// Status Register.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | IF | 10000000 |
+/// | WRCOL | 1000000 |
+pub const STATUS: *mut u8 = 0x2 as *mut u8;
+
+/// Fault Detection Event Mask.
+pub const FDEMASK: *mut u8 = 0x2 as *mut u8;
 
 /// Reset Configuration.
 ///
@@ -140,25 +171,43 @@ pub const ADDR1: *mut u8 = 0x1 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | BOOTRST | 1000000 |
-/// | BODPD | 11 |
 /// | TOSCSEL | 100000 |
+/// | BODPD | 11 |
+/// | BOOTRST | 1000000 |
 pub const FUSEBYTE2: *mut u8 = 0x2 as *mut u8;
 
-/// Address Register 2.
-pub const ADDR2: *mut u8 = 0x2 as *mut u8;
+/// Analog Comparator 0 MUX Control.
+pub const AC0MUXCTRL: *mut u8 = 0x2 as *mut u8;
 
-/// Device ID byte 2.
-pub const DEVID2: *mut u8 = 0x2 as *mut u8;
+/// Address Control.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | SRCRELOAD | 11000000 |
+/// | SRCDIR | 110000 |
+/// | DESTDIR | 11 |
+/// | DESTRELOAD | 1100 |
+pub const ADDRCTRL: *mut u8 = 0x2 as *mut u8;
+
+/// Power Reduction Port B.
+pub const PRPB: *mut u8 = 0x2 as *mut u8;
+
+/// I/O Port Data Direction Clear.
+pub const DIRCLR: *mut u8 = 0x2 as *mut u8;
 
 /// Calibration Register A.
 pub const CALA: *mut u8 = 0x2 as *mut u8;
 
-/// Fault Detection Event Mask.
-pub const FDEMASK: *mut u8 = 0x2 as *mut u8;
+/// Device ID byte 2.
+pub const DEVID2: *mut u8 = 0x2 as *mut u8;
 
 /// AES State Register.
 pub const STATE: *mut u8 = 0x2 as *mut u8;
+
+/// IrDA Receiver Pulse Length Control Register.
+pub const RXPLCTRL: *mut u8 = 0x2 as *mut u8;
 
 /// Virtual Port Control Register A.
 ///
@@ -170,35 +219,8 @@ pub const STATE: *mut u8 = 0x2 as *mut u8;
 /// | VP1MAP | 11110000 |
 pub const VPCTRLA: *mut u8 = 0x2 as *mut u8;
 
-/// Address Control.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | SRCDIR | 110000 |
-/// | DESTRELOAD | 1100 |
-/// | DESTDIR | 11 |
-/// | SRCRELOAD | 11000000 |
-pub const ADDRCTRL: *mut u8 = 0x2 as *mut u8;
-
-/// RCOSC 32.768 kHz Calibration Value.
-pub const RCOSC32K: *mut u8 = 0x2 as *mut u8;
-
-/// Power Reduction Port B.
-pub const PRPB: *mut u8 = 0x2 as *mut u8;
-
-/// External Oscillator Control Register.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | X32KLPM | 100000 |
-/// | XOSCPWR | 10000 |
-/// | XOSCSEL | 1111 |
-/// | FRQRANGE | 11000000 |
-pub const XOSCCTRL: *mut u8 = 0x2 as *mut u8;
+/// Lock register.
+pub const LOCK: *mut u8 = 0x2 as *mut u8;
 
 /// Reference Control.
 ///
@@ -207,72 +229,21 @@ pub const XOSCCTRL: *mut u8 = 0x2 as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | BANDGAP | 10 |
-/// | TEMPREF | 1 |
 /// | REFSEL | 1110000 |
+/// | TEMPREF | 1 |
 pub const REFCTRL: *mut u8 = 0x2 as *mut u8;
 
-/// Analog Comparator 0 MUX Control.
-pub const AC0MUXCTRL: *mut u8 = 0x2 as *mut u8;
-
-/// General Purpose IO Register 2.
-pub const GPIOR2: *mut u8 = 0x2 as *mut u8;
-
-/// Lock register.
-pub const LOCK: *mut u8 = 0x2 as *mut u8;
+/// Address Register 2.
+pub const ADDR2: *mut u8 = 0x2 as *mut u8;
 
 /// Event Channel 2 Multiplexer.
 pub const CH2MUX: *mut u8 = 0x2 as *mut u8;
 
-/// Status Register.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | WRCOL | 1000000 |
-/// | IF | 10000000 |
-pub const STATUS: *mut u8 = 0x2 as *mut u8;
+/// AES Key Register.
+pub const KEY: *mut u8 = 0x3 as *mut u8;
 
-/// IrDA Receiver Pulse Length Control Register.
-pub const RXPLCTRL: *mut u8 = 0x2 as *mut u8;
-
-/// I/O Port Data Direction Clear.
-pub const DIRCLR: *mut u8 = 0x2 as *mut u8;
-
-/// Event Channel 3 Multiplexer.
-pub const CH3MUX: *mut u8 = 0x3 as *mut u8;
-
-/// Channel Trigger Source.
-pub const TRIGSRC: *mut u8 = 0x3 as *mut u8;
-
-/// Data Input.
-pub const DATAIN: *mut u8 = 0x3 as *mut u8;
-
-/// Analog Comparator 1 MUX Control.
-pub const AC1MUXCTRL: *mut u8 = 0x3 as *mut u8;
-
-/// Oscillator Failure Detection Register.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | PLLFDEN | 100 |
-/// | PLLFDIF | 1000 |
-/// | XOSCFDIF | 10 |
-/// | XOSCFDEN | 1 |
-pub const XOSCFAIL: *mut u8 = 0x3 as *mut u8;
-
-/// Fault Detection Control Register.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | FDMODE | 100 |
-/// | FDACT | 11 |
-/// | FDDBD | 10000 |
-pub const FDCTRL: *mut u8 = 0x3 as *mut u8;
+/// Revision ID.
+pub const REVID: *mut u8 = 0x3 as *mut u8;
 
 /// Virtual Port Control Register B.
 ///
@@ -284,53 +255,26 @@ pub const FDCTRL: *mut u8 = 0x3 as *mut u8;
 /// | VP2MAP | 1111 |
 pub const VPCTRLB: *mut u8 = 0x3 as *mut u8;
 
-/// Calibration Register B.
-pub const CALB: *mut u8 = 0x3 as *mut u8;
+/// Power Reduction Port C.
+pub const PRPC: *mut u8 = 0x3 as *mut u8;
 
-/// Revision ID.
-pub const REVID: *mut u8 = 0x3 as *mut u8;
+/// Oscillator Failure Detection Register.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | XOSCFDEN | 1 |
+/// | PLLFDIF | 1000 |
+/// | XOSCFDIF | 10 |
+/// | PLLFDEN | 100 |
+pub const XOSCFAIL: *mut u8 = 0x3 as *mut u8;
+
+/// Event Channel 3 Multiplexer.
+pub const CH3MUX: *mut u8 = 0x3 as *mut u8;
 
 /// Data Register.
 pub const DATA: *mut u8 = 0x3 as *mut u8;
-
-/// RTC Control Register.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | RTCSRC | 1110 |
-/// | RTCEN | 1 |
-pub const RTCCTRL: *mut u8 = 0x3 as *mut u8;
-
-/// Event Input Control.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | EVSPLIT | 1000 |
-pub const EVCTRL: *mut u8 = 0x3 as *mut u8;
-
-/// Address Register.
-pub const ADDR: *mut u8 = 0x3 as *mut u8;
-
-/// General Purpose IO Register 3.
-pub const GPIOR3: *mut u8 = 0x3 as *mut u8;
-
-/// RCOSC 32 MHz Calibration Value B.
-pub const RCOSC32M: *mut u8 = 0x3 as *mut u8;
-
-/// Control Register A.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | RXCINTLVL | 110000 |
-/// | DREINTLVL | 11 |
-/// | TXCINTLVL | 1100 |
-pub const CTRLA: *mut u8 = 0x3 as *mut u8;
 
 /// Control Register D.
 ///
@@ -342,59 +286,107 @@ pub const CTRLA: *mut u8 = 0x3 as *mut u8;
 /// | EVACT | 11100000 |
 pub const CTRLD: *mut u8 = 0x3 as *mut u8;
 
-/// I/O Port Data Direction Toggle.
-pub const DIRTGL: *mut u8 = 0x3 as *mut u8;
+/// Calibration Register B.
+pub const CALB: *mut u8 = 0x3 as *mut u8;
 
-/// Power Reduction Port C.
-pub const PRPC: *mut u8 = 0x3 as *mut u8;
+/// Data Input.
+pub const DATAIN: *mut u8 = 0x3 as *mut u8;
 
-/// AES Key Register.
-pub const KEY: *mut u8 = 0x3 as *mut u8;
-
-/// Start-up Configuration.
+/// Control Register A.
 ///
 /// Bitfields:
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | WDLOCK | 10 |
-/// | JTAGEN | 1 |
-/// | RSTDISBL | 10000 |
-/// | SUT | 1100 |
-pub const FUSEBYTE4: *mut u8 = 0x4 as *mut u8;
+/// | DREINTLVL | 11 |
+/// | RXCINTLVL | 110000 |
+/// | TXCINTLVL | 1100 |
+pub const CTRLA: *mut u8 = 0x3 as *mut u8;
 
-/// FIFO Write Pointer Register.
-pub const FIFOWP: *mut u8 = 0x4 as *mut u8;
+/// General Purpose IO Register 3.
+pub const GPIOR3: *mut u8 = 0x3 as *mut u8;
 
-/// Configuration Change Protection.
-pub const CCP: *mut u8 = 0x4 as *mut u8;
+/// I/O Port Data Direction Toggle.
+pub const DIRTGL: *mut u8 = 0x3 as *mut u8;
 
-/// Checksum byte 0.
-pub const CHECKSUM0: *mut u8 = 0x4 as *mut u8;
+/// Address Register.
+pub const ADDR: *mut u8 = 0x3 as *mut u8;
 
-/// Data Pointer.
-pub const DATAPTR: *mut u16 = 0x4 as *mut u16;
+/// RCOSC 32 MHz Calibration Value B.
+pub const RCOSC32M: *mut u8 = 0x3 as *mut u8;
 
-/// I/O Port Output.
-pub const OUT: *mut u8 = 0x4 as *mut u8;
+/// Fault Detection Control Register.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | FDACT | 11 |
+/// | FDDBD | 10000 |
+/// | FDMODE | 100 |
+pub const FDCTRL: *mut u8 = 0x3 as *mut u8;
 
-/// Baurd Rate Control Register.
-pub const BAUD: *mut u8 = 0x4 as *mut u8;
+/// Channel Trigger Source.
+pub const TRIGSRC: *mut u8 = 0x3 as *mut u8;
+
+/// Event Input Control.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | EVSPLIT | 1000 |
+pub const EVCTRL: *mut u8 = 0x3 as *mut u8;
+
+/// RTC Control Register.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | RTCSRC | 1110 |
+/// | RTCEN | 1 |
+pub const RTCCTRL: *mut u8 = 0x3 as *mut u8;
+
+/// Analog Comparator 1 MUX Control.
+pub const AC1MUXCTRL: *mut u8 = 0x3 as *mut u8;
+
+/// Channel Result.
+pub const RES: *mut u16 = 0x4 as *mut u16;
+
+/// Clock and Event Out Register.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | EVOUT | 110000 |
+/// | CLKEVPIN | 10000000 |
+/// | RTCOUT | 1000000 |
+/// | CLKOUTSEL | 1100 |
+/// | CLKOUT | 11 |
+pub const CLKEVOUT: *mut u8 = 0x4 as *mut u8;
 
 /// Channel Block Transfer Count low byte.
 pub const TRFCNTL: *mut u8 = 0x4 as *mut u8;
 
+/// Event Channel 4 Multiplexer.
+pub const CH4MUX: *mut u8 = 0x4 as *mut u8;
+
+/// Clock Prescaler.
+pub const PRESCALER: *mut u8 = 0x4 as *mut u8;
+
+/// FIFO Write Pointer Register.
+pub const FIFOWP: *mut u8 = 0x4 as *mut u8;
+
 /// General Purpose IO Register 4.
 pub const GPIOR4: *mut u8 = 0x4 as *mut u8;
 
-/// Oscillator Compare Register 0.
-pub const COMP0: *mut u8 = 0x4 as *mut u8;
+/// I/O Port Output.
+pub const OUT: *mut u8 = 0x4 as *mut u8;
 
 /// 32.768 kHz Internal Oscillator Calibration Register.
 pub const RC32KCAL: *mut u8 = 0x4 as *mut u8;
-
-/// JTAG User ID.
-pub const JTAGUID: *mut u8 = 0x4 as *mut u8;
 
 /// USB Control Register.
 ///
@@ -403,9 +395,46 @@ pub const JTAGUID: *mut u8 = 0x4 as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | USBPSDIV | 111000 |
-/// | USBSRC | 110 |
 /// | USBSEN | 1 |
+/// | USBSRC | 110 |
 pub const USBCTRL: *mut u8 = 0x4 as *mut u8;
+
+/// Configuration Change Protection.
+pub const CCP: *mut u8 = 0x4 as *mut u8;
+
+/// Channel Result low byte.
+pub const RESL: *mut u8 = 0x4 as *mut u8;
+
+/// Oscillator Compare Register 0.
+pub const COMP0: *mut u8 = 0x4 as *mut u8;
+
+/// Channel Block Transfer Count.
+pub const TRFCNT: *mut u16 = 0x4 as *mut u16;
+
+/// Control Register B.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | MPCM | 10 |
+/// | RXEN | 10000 |
+/// | TXB8 | 1 |
+/// | TXEN | 1000 |
+/// | CLK2X | 100 |
+pub const CTRLB: *mut u8 = 0x4 as *mut u8;
+
+/// Data Pointer low byte.
+pub const DATAPTRL: *mut u8 = 0x4 as *mut u8;
+
+/// Data Pointer.
+pub const DATAPTR: *mut u16 = 0x4 as *mut u16;
+
+/// Baurd Rate Control Register.
+pub const BAUD: *mut u8 = 0x4 as *mut u8;
+
+/// Power Reduction Port D.
+pub const PRPD: *mut u8 = 0x4 as *mut u8;
 
 /// Control Register E.
 ///
@@ -416,61 +445,41 @@ pub const USBCTRL: *mut u8 = 0x4 as *mut u8;
 /// | BYTEM | 11 |
 pub const CTRLE: *mut u8 = 0x4 as *mut u8;
 
-/// Event Channel 4 Multiplexer.
-pub const CH4MUX: *mut u8 = 0x4 as *mut u8;
+/// Data Register 0.
+pub const DATA0: *mut u8 = 0x4 as *mut u8;
 
-/// Channel Block Transfer Count.
-pub const TRFCNT: *mut u16 = 0x4 as *mut u16;
+/// JTAG User ID.
+pub const JTAGUID: *mut u8 = 0x4 as *mut u8;
 
-/// Clock and Event Out Register.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | CLKEVPIN | 10000000 |
-/// | RTCOUT | 1000000 |
-/// | CLKOUTSEL | 1100 |
-/// | EVOUT | 110000 |
-/// | CLKOUT | 11 |
-pub const CLKEVOUT: *mut u8 = 0x4 as *mut u8;
-
-/// Power Reduction Port D.
-pub const PRPD: *mut u8 = 0x4 as *mut u8;
-
-/// Data Pointer low byte.
-pub const DATAPTRL: *mut u8 = 0x4 as *mut u8;
-
-/// Channel Result.
-pub const RES: *mut u16 = 0x4 as *mut u16;
-
-/// Channel Result low byte.
-pub const RESL: *mut u8 = 0x4 as *mut u8;
-
-/// Control Register B.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | MPCM | 10 |
-/// | TXEN | 1000 |
-/// | CLK2X | 100 |
-/// | TXB8 | 1 |
-/// | RXEN | 10000 |
-pub const CTRLB: *mut u8 = 0x4 as *mut u8;
+/// Checksum byte 0.
+pub const CHECKSUM0: *mut u8 = 0x4 as *mut u8;
 
 /// RCOSC 32 MHz Calibration Value A.
 pub const RCOSC32MA: *mut u8 = 0x4 as *mut u8;
 
-/// Clock Prescaler.
-pub const PRESCALER: *mut u8 = 0x4 as *mut u8;
+/// Start-up Configuration.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | JTAGEN | 1 |
+/// | SUT | 1100 |
+/// | WDLOCK | 10 |
+/// | RSTDISBL | 10000 |
+pub const FUSEBYTE4: *mut u8 = 0x4 as *mut u8;
 
-/// Data Register 0.
-pub const DATA0: *mut u8 = 0x4 as *mut u8;
+/// Data Register 1.
+pub const DATA1: *mut u8 = 0x5 as *mut u8;
 
-/// I/O Port Output Set.
-pub const OUTSET: *mut u8 = 0x5 as *mut u8;
+/// Power Reduction Port E.
+pub const PRPE: *mut u8 = 0x5 as *mut u8;
+
+/// Data Pointer high byte.
+pub const DATAPTRH: *mut u8 = 0x5 as *mut u8;
+
+/// FIFO Read Pointer Register.
+pub const FIFORP: *mut u8 = 0x5 as *mut u8;
 
 /// Address Mask Register.
 ///
@@ -481,8 +490,19 @@ pub const OUTSET: *mut u8 = 0x5 as *mut u8;
 /// | ADDREN | 1 |
 pub const ADDRMASK: *mut u8 = 0x5 as *mut u8;
 
-/// Power Reduction Port E.
-pub const PRPE: *mut u8 = 0x5 as *mut u8;
+/// PLL Control Register.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | PLLFAC | 11111 |
+/// | PLLSRC | 11000000 |
+/// | PLLDIV | 100000 |
+pub const PLLCTRL: *mut u8 = 0x5 as *mut u8;
+
+/// Channel Block Transfer Count high byte.
+pub const TRFCNTH: *mut u8 = 0x5 as *mut u8;
 
 /// Oscillator Compare Register 1.
 pub const COMP1: *mut u8 = 0x5 as *mut u8;
@@ -490,8 +510,8 @@ pub const COMP1: *mut u8 = 0x5 as *mut u8;
 /// Event Channel 5 Multiplexer.
 pub const CH5MUX: *mut u8 = 0x5 as *mut u8;
 
-/// Channel Result high byte.
-pub const RESH: *mut u8 = 0x5 as *mut u8;
+/// Checksum byte 1.
+pub const CHECKSUM1: *mut u8 = 0x5 as *mut u8;
 
 /// Status Set Register.
 ///
@@ -499,48 +519,13 @@ pub const RESH: *mut u8 = 0x5 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | DTLSBUFV | 1 |
-/// | DTHSBUFV | 10 |
 /// | FDF | 100 |
+/// | DTHSBUFV | 10 |
+/// | DTLSBUFV | 1 |
 pub const STATUSSET: *mut u8 = 0x5 as *mut u8;
-
-/// Data Pointer high byte.
-pub const DATAPTRH: *mut u8 = 0x5 as *mut u8;
 
 /// General Purpose IO Register 5.
 pub const GPIOR5: *mut u8 = 0x5 as *mut u8;
-
-/// FIFO Read Pointer Register.
-pub const FIFORP: *mut u8 = 0x5 as *mut u8;
-
-/// Checksum byte 1.
-pub const CHECKSUM1: *mut u8 = 0x5 as *mut u8;
-
-/// PLL Control Register.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | PLLDIV | 100000 |
-/// | PLLSRC | 11000000 |
-/// | PLLFAC | 11111 |
-pub const PLLCTRL: *mut u8 = 0x5 as *mut u8;
-
-/// Data Register 1.
-pub const DATA1: *mut u8 = 0x5 as *mut u8;
-
-/// Control Register C.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | PMODE | 110000 |
-/// | SBMODE | 1000 |
-/// | CHSIZE | 111 |
-/// | CMODE | 11000000 |
-pub const CTRLC: *mut u8 = 0x5 as *mut u8;
 
 /// EESAVE and BOD Level.
 ///
@@ -553,77 +538,35 @@ pub const CTRLC: *mut u8 = 0x5 as *mut u8;
 /// | EESAVE | 1000 |
 pub const FUSEBYTE5: *mut u8 = 0x5 as *mut u8;
 
-/// Channel Block Transfer Count high byte.
-pub const TRFCNTH: *mut u8 = 0x5 as *mut u8;
+/// Control Register C.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | CMODE | 11000000 |
+/// | SBMODE | 1000 |
+/// | PMODE | 110000 |
+/// | CHSIZE | 111 |
+pub const CTRLC: *mut u8 = 0x5 as *mut u8;
 
-/// Event Output Select.
-pub const EVOUTSEL: *mut u8 = 0x6 as *mut u8;
+/// I/O Port Output Set.
+pub const OUTSET: *mut u8 = 0x5 as *mut u8;
 
-/// General Purpose IO Register 6.
-pub const GPIOR6: *mut u8 = 0x6 as *mut u8;
-
-/// Baud Rate Control Register A.
-pub const BAUDCTRLA: *mut u8 = 0x6 as *mut u8;
-
-/// Event Channel 6 Multiplexer.
-pub const CH6MUX: *mut u8 = 0x6 as *mut u8;
-
-/// Power Reduction Port F.
-pub const PRPF: *mut u8 = 0x6 as *mut u8;
-
-/// Oscillator Compare Register 2.
-pub const COMP2: *mut u8 = 0x6 as *mut u8;
-
-/// Data Register 2.
-pub const DATA2: *mut u8 = 0x6 as *mut u8;
-
-/// Auxiliary Data.
-pub const AUXDATA: *mut u16 = 0x6 as *mut u16;
+/// Channel Result high byte.
+pub const RESH: *mut u8 = 0x5 as *mut u8;
 
 /// Endpoint Configuration Table Pointer.
 pub const EPPTR: *mut u16 = 0x6 as *mut u16;
 
-/// Checksum byte 2.
-pub const CHECKSUM2: *mut u8 = 0x6 as *mut u8;
-
-/// Auxiliary Data low byte.
-pub const AUXDATAL: *mut u8 = 0x6 as *mut u8;
-
-/// Interrupt Control Register A.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | HUNFINTLVL | 1100 |
-/// | LUNFINTLVL | 11 |
-pub const INTCTRLA: *mut u8 = 0x6 as *mut u8;
-
-/// DFLL Control Register.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | RC2MCREF | 1 |
-/// | RC32MCREF | 110 |
-pub const DFLLCTRL: *mut u8 = 0x6 as *mut u8;
-
 /// Endpoint Configuration Table Pointer low byte.
 pub const EPPTRL: *mut u8 = 0x6 as *mut u8;
 
-/// I/O Port Output Clear.
-pub const OUTCLR: *mut u8 = 0x6 as *mut u8;
+/// Oscillator Compare Register 2.
+pub const COMP2: *mut u8 = 0x6 as *mut u8;
 
-/// Input Channel Scan.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | OFFSET | 11110000 |
-/// | SCANNUM | 1111 |
-pub const SCAN: *mut u8 = 0x6 as *mut u8;
+/// Channel Repeat Count.
+pub const REPCNT: *mut u8 = 0x6 as *mut u8;
 
 /// Window Mode Control.
 ///
@@ -636,6 +579,25 @@ pub const SCAN: *mut u8 = 0x6 as *mut u8;
 /// | WEN | 10000 |
 pub const WINCTRL: *mut u8 = 0x6 as *mut u8;
 
+/// Input Channel Scan.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | OFFSET | 11110000 |
+/// | SCANNUM | 1111 |
+pub const SCAN: *mut u8 = 0x6 as *mut u8;
+
+/// Dead Time Both Sides.
+pub const DTBOTH: *mut u8 = 0x6 as *mut u8;
+
+/// Baud Rate Control Register A.
+pub const BAUDCTRLA: *mut u8 = 0x6 as *mut u8;
+
+/// Checksum byte 2.
+pub const CHECKSUM2: *mut u8 = 0x6 as *mut u8;
+
 /// MCU Control.
 ///
 /// Bitfields:
@@ -645,35 +607,64 @@ pub const WINCTRL: *mut u8 = 0x6 as *mut u8;
 /// | JTAGD | 1 |
 pub const MCUCR: *mut u8 = 0x6 as *mut u8;
 
-/// Channel Repeat Count.
-pub const REPCNT: *mut u8 = 0x6 as *mut u8;
+/// Auxiliary Data.
+pub const AUXDATA: *mut u16 = 0x6 as *mut u16;
 
-/// Dead Time Both Sides.
-pub const DTBOTH: *mut u8 = 0x6 as *mut u8;
+/// Auxiliary Data low byte.
+pub const AUXDATAL: *mut u8 = 0x6 as *mut u8;
 
-/// Endpoint Configuration Table Pointer high byte.
-pub const EPPTRH: *mut u8 = 0x7 as *mut u8;
+/// Event Output Select.
+pub const EVOUTSEL: *mut u8 = 0x6 as *mut u8;
 
-/// Dead Time Both Sides Buffer.
-pub const DTBOTHBUF: *mut u8 = 0x7 as *mut u8;
+/// General Purpose IO Register 6.
+pub const GPIOR6: *mut u8 = 0x6 as *mut u8;
 
-/// General Purpose IO Register 7.
-pub const GPIOR7: *mut u8 = 0x7 as *mut u8;
+/// Event Channel 6 Multiplexer.
+pub const CH6MUX: *mut u8 = 0x6 as *mut u8;
 
-/// Event Channel 7 Multiplexer.
-pub const CH7MUX: *mut u8 = 0x7 as *mut u8;
-
-/// Checksum byte 3.
-pub const CHECKSUM3: *mut u8 = 0x7 as *mut u8;
-
-/// Baud Rate Control Register B.
+/// DFLL Control Register.
 ///
 /// Bitfields:
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | BSCALE | 11110000 |
-pub const BAUDCTRLB: *mut u8 = 0x7 as *mut u8;
+/// | RC32MCREF | 110 |
+/// | RC2MCREF | 1 |
+pub const DFLLCTRL: *mut u8 = 0x6 as *mut u8;
+
+/// I/O Port Output Clear.
+pub const OUTCLR: *mut u8 = 0x6 as *mut u8;
+
+/// Power Reduction Port F.
+pub const PRPF: *mut u8 = 0x6 as *mut u8;
+
+/// Data Register 2.
+pub const DATA2: *mut u8 = 0x6 as *mut u8;
+
+/// Interrupt Control Register A.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | HUNFINTLVL | 1100 |
+/// | LUNFINTLVL | 11 |
+pub const INTCTRLA: *mut u8 = 0x6 as *mut u8;
+
+/// Interrupt Control Register B.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | LCMPAINTLVL | 11 |
+/// | LCMPDINTLVL | 11000000 |
+/// | LCMPCINTLVL | 110000 |
+/// | LCMPBINTLVL | 1100 |
+pub const INTCTRLB: *mut u8 = 0x7 as *mut u8;
+
+/// General Purpose IO Register 7.
+pub const GPIOR7: *mut u8 = 0x7 as *mut u8;
 
 /// Analog Startup Delay.
 ///
@@ -685,23 +676,38 @@ pub const BAUDCTRLB: *mut u8 = 0x7 as *mut u8;
 /// | STARTUPDLYA | 11 |
 pub const ANAINIT: *mut u8 = 0x7 as *mut u8;
 
-/// Auxiliary Data high byte.
-pub const AUXDATAH: *mut u8 = 0x7 as *mut u8;
+/// Dead Time Both Sides Buffer.
+pub const DTBOTHBUF: *mut u8 = 0x7 as *mut u8;
 
 /// I/O Port Output Toggle.
 pub const OUTTGL: *mut u8 = 0x7 as *mut u8;
 
-/// Interrupt Control Register B.
+/// Event Channel 7 Multiplexer.
+pub const CH7MUX: *mut u8 = 0x7 as *mut u8;
+
+/// Baud Rate Control Register B.
 ///
 /// Bitfields:
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | LCMPDINTLVL | 11000000 |
-/// | LCMPCINTLVL | 110000 |
-/// | LCMPAINTLVL | 11 |
-/// | LCMPBINTLVL | 1100 |
-pub const INTCTRLB: *mut u8 = 0x7 as *mut u8;
+/// | BSCALE | 11110000 |
+pub const BAUDCTRLB: *mut u8 = 0x7 as *mut u8;
+
+/// Checksum byte 3.
+pub const CHECKSUM3: *mut u8 = 0x7 as *mut u8;
+
+/// Auxiliary Data high byte.
+pub const AUXDATAH: *mut u8 = 0x7 as *mut u8;
+
+/// Endpoint Configuration Table Pointer high byte.
+pub const EPPTRH: *mut u8 = 0x7 as *mut u8;
+
+/// I/O port Input.
+pub const IN: *mut u8 = 0x8 as *mut u8;
+
+/// Control Register F Clear.
+pub const CTRLFCLR: *mut u8 = 0x8 as *mut u8;
 
 /// Event System Lock.
 ///
@@ -709,27 +715,9 @@ pub const INTCTRLB: *mut u8 = 0x7 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | EVSYS1LOCK | 10000 |
 /// | EVSYS0LOCK | 1 |
+/// | EVSYS1LOCK | 10000 |
 pub const EVSYSLOCK: *mut u8 = 0x8 as *mut u8;
-
-/// General Purpose IO Register 8.
-pub const GPIOR8: *mut u8 = 0x8 as *mut u8;
-
-/// Ramp D.
-pub const RAMPD: *mut u8 = 0x8 as *mut u8;
-
-/// I/O port Input.
-pub const IN: *mut u8 = 0x8 as *mut u8;
-
-/// Channel Source Address 0.
-pub const SRCADDR0: *mut u8 = 0x8 as *mut u8;
-
-/// Gain Calibration.
-pub const CH0GAINCAL: *mut u8 = 0x8 as *mut u8;
-
-/// Dead Time Low Side.
-pub const DTLS: *mut u8 = 0x8 as *mut u8;
 
 /// Channel 0 Control Register.
 pub const CH0CTRL: *mut u8 = 0x8 as *mut u8;
@@ -737,8 +725,20 @@ pub const CH0CTRL: *mut u8 = 0x8 as *mut u8;
 /// Lot Number Byte 0, ASCII.
 pub const LOTNUM0: *mut u8 = 0x8 as *mut u8;
 
-/// Control Register F Clear.
-pub const CTRLFCLR: *mut u8 = 0x8 as *mut u8;
+/// Gain Calibration.
+pub const CH0GAINCAL: *mut u8 = 0x8 as *mut u8;
+
+/// Ramp D.
+pub const RAMPD: *mut u8 = 0x8 as *mut u8;
+
+/// Dead Time Low Side.
+pub const DTLS: *mut u8 = 0x8 as *mut u8;
+
+/// General Purpose IO Register 8.
+pub const GPIOR8: *mut u8 = 0x8 as *mut u8;
+
+/// Channel Source Address 0.
+pub const SRCADDR0: *mut u8 = 0x8 as *mut u8;
 
 /// Current Source Control.
 ///
@@ -746,35 +746,11 @@ pub const CTRLFCLR: *mut u8 = 0x8 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | AC1CURR | 10 |
 /// | CURRMODE | 1000000 |
 /// | CURRENT | 10000000 |
+/// | AC1CURR | 10 |
 /// | AC0CURR | 1 |
 pub const CURRCTRL: *mut u8 = 0x8 as *mut u8;
-
-/// Channel 1 Control Register.
-pub const CH1CTRL: *mut u8 = 0x9 as *mut u8;
-
-/// Dead Time High Side.
-pub const DTHS: *mut u8 = 0x9 as *mut u8;
-
-/// Offset Calibration.
-pub const CH0OFFSETCAL: *mut u8 = 0x9 as *mut u8;
-
-/// Current Source Calibration.
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | CALIB | 1111 |
-pub const CURRCALIB: *mut u8 = 0x9 as *mut u8;
-
-/// General Purpose IO Register 9.
-pub const GPIOR9: *mut u8 = 0x9 as *mut u8;
-
-/// Ramp X.
-pub const RAMPX: *mut u8 = 0x9 as *mut u8;
 
 /// Control Register F.
 ///
@@ -785,11 +761,14 @@ pub const RAMPX: *mut u8 = 0x9 as *mut u8;
 /// | CMDEN | 11 |
 pub const CTRLF: *mut u8 = 0x9 as *mut u8;
 
-/// Lot Number Byte 1, ASCII.
-pub const LOTNUM1: *mut u8 = 0x9 as *mut u8;
-
-/// Channel Source Address 1.
-pub const SRCADDR1: *mut u8 = 0x9 as *mut u8;
+/// Current Source Calibration.
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | CALIB | 1111 |
+pub const CURRCALIB: *mut u8 = 0x9 as *mut u8;
 
 /// AWEX Lock.
 ///
@@ -797,59 +776,68 @@ pub const SRCADDR1: *mut u8 = 0x9 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | AWEXFLOCK | 1000 |
 /// | AWEXELOCK | 100 |
-/// | AWEXCLOCK | 1 |
 /// | AWEXDLOCK | 10 |
+/// | AWEXFLOCK | 1000 |
+/// | AWEXCLOCK | 1 |
 pub const AWEXLOCK: *mut u8 = 0x9 as *mut u8;
+
+/// Dead Time High Side.
+pub const DTHS: *mut u8 = 0x9 as *mut u8;
+
+/// Channel Source Address 1.
+pub const SRCADDR1: *mut u8 = 0x9 as *mut u8;
+
+/// Channel 1 Control Register.
+pub const CH1CTRL: *mut u8 = 0x9 as *mut u8;
+
+/// Ramp X.
+pub const RAMPX: *mut u8 = 0x9 as *mut u8;
+
+/// Lot Number Byte 1, ASCII.
+pub const LOTNUM1: *mut u8 = 0x9 as *mut u8;
+
+/// General Purpose IO Register 9.
+pub const GPIOR9: *mut u8 = 0x9 as *mut u8;
+
+/// Offset Calibration.
+pub const CH0OFFSETCAL: *mut u8 = 0x9 as *mut u8;
 
 /// Control Register F Set.
 pub const CTRLFSET: *mut u8 = 0x9 as *mut u8;
 
-/// Control Register G Clear.
-pub const CTRLGCLR: *mut u8 = 0xA as *mut u8;
-
-/// Dead Time Low Side Buffer.
-pub const DTLSBUF: *mut u8 = 0xA as *mut u8;
-
 /// Channel Source Address 2.
 pub const SRCADDR2: *mut u8 = 0xA as *mut u8;
-
-/// Channel 2 Control Register.
-pub const CH2CTRL: *mut u8 = 0xA as *mut u8;
-
-/// General Purpose IO Register 10.
-pub const GPIORA: *mut u8 = 0xA as *mut u8;
-
-/// Gain Calibration.
-pub const CH1GAINCAL: *mut u8 = 0xA as *mut u8;
-
-/// Command.
-pub const CMD: *mut u8 = 0xA as *mut u8;
-
-/// Clear Interrupt Flag Register A.
-pub const INTFLAGSACLR: *mut u8 = 0xA as *mut u8;
 
 /// Ramp Y.
 pub const RAMPY: *mut u8 = 0xA as *mut u8;
 
+/// General Purpose IO Register 10.
+pub const GPIORA: *mut u8 = 0xA as *mut u8;
+
 /// Port Interrupt 0 Mask.
 pub const INT0MASK: *mut u8 = 0xA as *mut u8;
+
+/// Command.
+pub const CMD: *mut u8 = 0xA as *mut u8;
 
 /// Lot Number Byte 2, ASCII.
 pub const LOTNUM2: *mut u8 = 0xA as *mut u8;
 
-/// Set Interrupt Flag Register A.
-pub const INTFLAGSASET: *mut u8 = 0xB as *mut u8;
+/// Channel 2 Control Register.
+pub const CH2CTRL: *mut u8 = 0xA as *mut u8;
 
-/// Control Register G Set.
-pub const CTRLGSET: *mut u8 = 0xB as *mut u8;
+/// Clear Interrupt Flag Register A.
+pub const INTFLAGSACLR: *mut u8 = 0xA as *mut u8;
 
-/// General Purpose IO Register 11.
-pub const GPIORB: *mut u8 = 0xB as *mut u8;
+/// Dead Time Low Side Buffer.
+pub const DTLSBUF: *mut u8 = 0xA as *mut u8;
 
-/// Offset Calibration.
-pub const CH1OFFSETCAL: *mut u8 = 0xB as *mut u8;
+/// Gain Calibration.
+pub const CH1GAINCAL: *mut u8 = 0xA as *mut u8;
+
+/// Control Register G Clear.
+pub const CTRLGCLR: *mut u8 = 0xA as *mut u8;
 
 /// Ramp Z.
 pub const RAMPZ: *mut u8 = 0xB as *mut u8;
@@ -857,17 +845,26 @@ pub const RAMPZ: *mut u8 = 0xB as *mut u8;
 /// Lot Number Byte 3, ASCII.
 pub const LOTNUM3: *mut u8 = 0xB as *mut u8;
 
-/// Dead Time High Side Buffer.
-pub const DTHSBUF: *mut u8 = 0xB as *mut u8;
-
 /// Port Interrupt 1 Mask.
 pub const INT1MASK: *mut u8 = 0xB as *mut u8;
+
+/// Control Register G Set.
+pub const CTRLGSET: *mut u8 = 0xB as *mut u8;
+
+/// Offset Calibration.
+pub const CH1OFFSETCAL: *mut u8 = 0xB as *mut u8;
+
+/// General Purpose IO Register 11.
+pub const GPIORB: *mut u8 = 0xB as *mut u8;
+
+/// Dead Time High Side Buffer.
+pub const DTHSBUF: *mut u8 = 0xB as *mut u8;
 
 /// Channel 3 Control Register.
 pub const CH3CTRL: *mut u8 = 0xB as *mut u8;
 
-/// Compare Register low byte.
-pub const COMPL: *mut u8 = 0xC as *mut u8;
+/// Set Interrupt Flag Register A.
+pub const INTFLAGSASET: *mut u8 = 0xB as *mut u8;
 
 /// Extended Indirect Jump.
 pub const EIND: *mut u8 = 0xC as *mut u8;
@@ -875,26 +872,8 @@ pub const EIND: *mut u8 = 0xC as *mut u8;
 /// Clear Interrupt Flag Register B.
 pub const INTFLAGSBCLR: *mut u8 = 0xC as *mut u8;
 
-/// Lot Number Byte 4, ASCII.
-pub const LOTNUM4: *mut u8 = 0xC as *mut u8;
-
 /// Calibration Value low byte.
 pub const CALL: *mut u8 = 0xC as *mut u8;
-
-/// Channel Destination Address 0.
-pub const DESTADDR0: *mut u8 = 0xC as *mut u8;
-
-/// General Purpose IO Register 12.
-pub const GPIORC: *mut u8 = 0xC as *mut u8;
-
-/// Channel 4 Control Register.
-pub const CH4CTRL: *mut u8 = 0xC as *mut u8;
-
-/// Output Override Enable.
-pub const OUTOVEN: *mut u8 = 0xC as *mut u8;
-
-/// Compare Register.
-pub const COMP: *mut u16 = 0xC as *mut u16;
 
 /// Interrupt Flag Register.
 ///
@@ -902,22 +881,37 @@ pub const COMP: *mut u16 = 0xC as *mut u16;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | LCMPCIF | 1000000 |
-/// | LCMPDIF | 10000000 |
-/// | HUNFIF | 10 |
 /// | LCMPBIF | 100000 |
+/// | HUNFIF | 10 |
 /// | LUNFIF | 1 |
 /// | LCMPAIF | 10000 |
+/// | LCMPDIF | 10000000 |
+/// | LCMPCIF | 1000000 |
 pub const INTFLAGS: *mut u8 = 0xC as *mut u8;
+
+/// General Purpose IO Register 12.
+pub const GPIORC: *mut u8 = 0xC as *mut u8;
+
+/// Output Override Enable.
+pub const OUTOVEN: *mut u8 = 0xC as *mut u8;
+
+/// Compare Register low byte.
+pub const COMPL: *mut u8 = 0xC as *mut u8;
+
+/// Channel 4 Control Register.
+pub const CH4CTRL: *mut u8 = 0xC as *mut u8;
 
 /// Calibration Value.
 pub const CAL: *mut u16 = 0xC as *mut u16;
 
-/// Lot Number Byte 5, ASCII.
-pub const LOTNUM5: *mut u8 = 0xD as *mut u8;
+/// Compare Register.
+pub const COMP: *mut u16 = 0xC as *mut u16;
 
-/// Compare Register high byte.
-pub const COMPH: *mut u8 = 0xD as *mut u8;
+/// Lot Number Byte 4, ASCII.
+pub const LOTNUM4: *mut u8 = 0xC as *mut u8;
+
+/// Channel Destination Address 0.
+pub const DESTADDR0: *mut u8 = 0xC as *mut u8;
 
 /// Set Interrupt Flag Register B.
 pub const INTFLAGSBSET: *mut u8 = 0xD as *mut u8;
@@ -925,23 +919,26 @@ pub const INTFLAGSBSET: *mut u8 = 0xD as *mut u8;
 /// General Purpose IO Register 13.
 pub const GPIORD: *mut u8 = 0xD as *mut u8;
 
-/// Channel Destination Address 1.
-pub const DESTADDR1: *mut u8 = 0xD as *mut u8;
+/// Calibration Value high byte.
+pub const CALH: *mut u8 = 0xD as *mut u8;
+
+/// Lot Number Byte 5, ASCII.
+pub const LOTNUM5: *mut u8 = 0xD as *mut u8;
 
 /// Channel 5 Control Register.
 pub const CH5CTRL: *mut u8 = 0xD as *mut u8;
 
-/// Calibration Value high byte.
-pub const CALH: *mut u8 = 0xD as *mut u8;
+/// Channel Destination Address 1.
+pub const DESTADDR1: *mut u8 = 0xD as *mut u8;
+
+/// Compare Register high byte.
+pub const COMPH: *mut u8 = 0xD as *mut u8;
 
 /// Stack Pointer Low.
 pub const SPL: *mut u8 = 0xD as *mut u8;
 
-/// General Purpose IO Register 14.
-pub const GPIORE: *mut u8 = 0xE as *mut u8;
-
-/// Channel Destination Address 2.
-pub const DESTADDR2: *mut u8 = 0xE as *mut u8;
+/// Stack Pointer High.
+pub const SPH: *mut u8 = 0xE as *mut u8;
 
 /// I/O Port Pin Remap Register.
 ///
@@ -951,18 +948,27 @@ pub const DESTADDR2: *mut u8 = 0xE as *mut u8;
 /// | ---- | ------------- |
 /// | TC0D | 1000 |
 /// | TC0B | 10 |
-/// | TC0A | 1 |
 /// | TC0C | 100 |
+/// | TC0A | 1 |
 pub const REMAP: *mut u8 = 0xE as *mut u8;
 
-/// Stack Pointer High.
-pub const SPH: *mut u8 = 0xE as *mut u8;
+/// Channel Destination Address 2.
+pub const DESTADDR2: *mut u8 = 0xE as *mut u8;
 
 /// Channel 6 Control Register.
 pub const CH6CTRL: *mut u8 = 0xE as *mut u8;
 
+/// General Purpose IO Register 14.
+pub const GPIORE: *mut u8 = 0xE as *mut u8;
+
+/// Channel 7 Control Register.
+pub const CH7CTRL: *mut u8 = 0xF as *mut u8;
+
 /// Temporary Register For 16-bit Access.
 pub const TEMP: *mut u8 = 0xF as *mut u8;
+
+/// General Purpose IO Register 15.
+pub const GPIORF: *mut u8 = 0xF as *mut u8;
 
 /// Status Register.
 ///
@@ -970,54 +976,51 @@ pub const TEMP: *mut u8 = 0xF as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | T | 1000000 |
-/// | N | 100 |
 /// | I | 10000000 |
-/// | H | 100000 |
-/// | Z | 10 |
-/// | S | 10000 |
 /// | V | 1000 |
+/// | H | 100000 |
 /// | C | 1 |
+/// | T | 1000000 |
+/// | S | 10000 |
+/// | N | 100 |
+/// | Z | 10 |
 pub const SREG: *mut u8 = 0xF as *mut u8;
-
-/// Channel 7 Control Register.
-pub const CH7CTRL: *mut u8 = 0xF as *mut u8;
-
-/// General Purpose IO Register 15.
-pub const GPIORF: *mut u8 = 0xF as *mut u8;
-
-/// Pin 0 Control Register.
-pub const PIN0CTRL: *mut u8 = 0x10 as *mut u8;
-
-/// Channel 0 Result low byte.
-pub const CH0RESL: *mut u8 = 0x10 as *mut u8;
-
-/// Event Strobe.
-pub const STROBE: *mut u8 = 0x10 as *mut u8;
 
 /// Wafer Number.
 pub const WAFNUM: *mut u8 = 0x10 as *mut u8;
 
+/// Pin 0 Control Register.
+pub const PIN0CTRL: *mut u8 = 0x10 as *mut u8;
+
+/// Event Strobe.
+pub const STROBE: *mut u8 = 0x10 as *mut u8;
+
 /// Channel 0 Result.
 pub const CH0RES: *mut u16 = 0x10 as *mut u16;
 
-/// Channel 0 Result high byte.
-pub const CH0RESH: *mut u8 = 0x11 as *mut u8;
+/// Channel 0 Result low byte.
+pub const CH0RESL: *mut u8 = 0x10 as *mut u8;
 
 /// Pin 1 Control Register.
 pub const PIN1CTRL: *mut u8 = 0x11 as *mut u8;
 
-/// Wafer Coordinate X Byte 0.
-pub const COORDX0: *mut u8 = 0x12 as *mut u8;
+/// Channel 0 Result high byte.
+pub const CH0RESH: *mut u8 = 0x11 as *mut u8;
 
 /// Channel 1 Result low byte.
 pub const CH1RESL: *mut u8 = 0x12 as *mut u8;
 
+/// Pin 2 Control Register.
+pub const PIN2CTRL: *mut u8 = 0x12 as *mut u8;
+
+/// Wafer Coordinate X Byte 0.
+pub const COORDX0: *mut u8 = 0x12 as *mut u8;
+
 /// Channel 1 Result.
 pub const CH1RES: *mut u16 = 0x12 as *mut u16;
 
-/// Pin 2 Control Register.
-pub const PIN2CTRL: *mut u8 = 0x12 as *mut u8;
+/// Pin 3 Control Register.
+pub const PIN3CTRL: *mut u8 = 0x13 as *mut u8;
 
 /// Channel 1 Result high byte.
 pub const CH1RESH: *mut u8 = 0x13 as *mut u8;
@@ -1025,8 +1028,11 @@ pub const CH1RESH: *mut u8 = 0x13 as *mut u8;
 /// Wafer Coordinate X Byte 1.
 pub const COORDX1: *mut u8 = 0x13 as *mut u8;
 
-/// Pin 3 Control Register.
-pub const PIN3CTRL: *mut u8 = 0x13 as *mut u8;
+/// Wafer Coordinate Y Byte 0.
+pub const COORDY0: *mut u8 = 0x14 as *mut u8;
+
+/// Channel 2 Result low byte.
+pub const CH2RESL: *mut u8 = 0x14 as *mut u8;
 
 /// Pin 4 Control Register.
 pub const PIN4CTRL: *mut u8 = 0x14 as *mut u8;
@@ -1034,23 +1040,14 @@ pub const PIN4CTRL: *mut u8 = 0x14 as *mut u8;
 /// Channel 2 Result.
 pub const CH2RES: *mut u16 = 0x14 as *mut u16;
 
-/// Wafer Coordinate Y Byte 0.
-pub const COORDY0: *mut u8 = 0x14 as *mut u8;
-
-/// Channel 2 Result low byte.
-pub const CH2RESL: *mut u8 = 0x14 as *mut u8;
+/// Channel 2 Result high byte.
+pub const CH2RESH: *mut u8 = 0x15 as *mut u8;
 
 /// Wafer Coordinate Y Byte 1.
 pub const COORDY1: *mut u8 = 0x15 as *mut u8;
 
-/// Channel 2 Result high byte.
-pub const CH2RESH: *mut u8 = 0x15 as *mut u8;
-
 /// Pin 5 Control Register.
 pub const PIN5CTRL: *mut u8 = 0x15 as *mut u8;
-
-/// Pin 6 Control Register.
-pub const PIN6CTRL: *mut u8 = 0x16 as *mut u8;
 
 /// Channel 3 Result low byte.
 pub const CH3RESL: *mut u8 = 0x16 as *mut u8;
@@ -1058,14 +1055,17 @@ pub const CH3RESL: *mut u8 = 0x16 as *mut u8;
 /// Channel 3 Result.
 pub const CH3RES: *mut u16 = 0x16 as *mut u16;
 
-/// Channel 3 Result high byte.
-pub const CH3RESH: *mut u8 = 0x17 as *mut u8;
+/// Pin 6 Control Register.
+pub const PIN6CTRL: *mut u8 = 0x16 as *mut u8;
 
 /// Pin 7 Control Register.
 pub const PIN7CTRL: *mut u8 = 0x17 as *mut u8;
 
-/// Channel 0 Data low byte.
-pub const CH0DATAL: *mut u8 = 0x18 as *mut u8;
+/// Channel 3 Result high byte.
+pub const CH3RESH: *mut u8 = 0x17 as *mut u8;
+
+/// Compare Value low byte.
+pub const CMPL: *mut u8 = 0x18 as *mut u8;
 
 /// Channel 0 Data.
 pub const CH0DATA: *mut u16 = 0x18 as *mut u16;
@@ -1073,8 +1073,8 @@ pub const CH0DATA: *mut u16 = 0x18 as *mut u16;
 /// Compare Value.
 pub const CMP: *mut u16 = 0x18 as *mut u16;
 
-/// Compare Value low byte.
-pub const CMPL: *mut u8 = 0x18 as *mut u8;
+/// Channel 0 Data low byte.
+pub const CH0DATAL: *mut u8 = 0x18 as *mut u8;
 
 /// Compare Value high byte.
 pub const CMPH: *mut u8 = 0x19 as *mut u8;
@@ -1091,11 +1091,11 @@ pub const CH1DATAL: *mut u8 = 0x1A as *mut u8;
 /// USB Calibration Byte 0.
 pub const USBCAL0: *mut u8 = 0x1A as *mut u8;
 
-/// USB Calibration Byte 1.
-pub const USBCAL1: *mut u8 = 0x1B as *mut u8;
-
 /// Channel 1 Data high byte.
 pub const CH1DATAH: *mut u8 = 0x1B as *mut u8;
+
+/// USB Calibration Byte 1.
+pub const USBCAL1: *mut u8 = 0x1B as *mut u8;
 
 /// USB RCOSC Calibration Value B.
 pub const USBRCOSC: *mut u8 = 0x1C as *mut u8;
@@ -1103,26 +1103,26 @@ pub const USBRCOSC: *mut u8 = 0x1C as *mut u8;
 /// USB RCOSC Calibration Value A.
 pub const USBRCOSCA: *mut u8 = 0x1D as *mut u8;
 
-/// Low Byte Count.
-pub const LCNT: *mut u8 = 0x20 as *mut u8;
-
-/// Count low byte.
-pub const CNTL: *mut u8 = 0x20 as *mut u8;
-
 /// ADCA Calibration Byte 0.
 pub const ADCACAL0: *mut u8 = 0x20 as *mut u8;
 
 /// Count.
 pub const CNT: *mut u16 = 0x20 as *mut u16;
 
-/// ADCA Calibration Byte 1.
-pub const ADCACAL1: *mut u8 = 0x21 as *mut u8;
+/// Count low byte.
+pub const CNTL: *mut u8 = 0x20 as *mut u8;
+
+/// Low Byte Count.
+pub const LCNT: *mut u8 = 0x20 as *mut u8;
+
+/// High Byte Count.
+pub const HCNT: *mut u8 = 0x21 as *mut u8;
 
 /// Count high byte.
 pub const CNTH: *mut u8 = 0x21 as *mut u8;
 
-/// High Byte Count.
-pub const HCNT: *mut u8 = 0x21 as *mut u8;
+/// ADCA Calibration Byte 1.
+pub const ADCACAL1: *mut u8 = 0x21 as *mut u8;
 
 /// ADCB Calibration Byte 0.
 pub const ADCBCAL0: *mut u8 = 0x24 as *mut u8;
@@ -1130,14 +1130,14 @@ pub const ADCBCAL0: *mut u8 = 0x24 as *mut u8;
 /// ADCB Calibration Byte 1.
 pub const ADCBCAL1: *mut u8 = 0x25 as *mut u8;
 
+/// Low Byte Period.
+pub const LPER: *mut u8 = 0x26 as *mut u8;
+
 /// Period low byte.
 pub const PERL: *mut u8 = 0x26 as *mut u8;
 
 /// Period.
 pub const PER: *mut u16 = 0x26 as *mut u16;
-
-/// Low Byte Period.
-pub const LPER: *mut u8 = 0x26 as *mut u8;
 
 /// Period high byte.
 pub const PERH: *mut u8 = 0x27 as *mut u8;
@@ -1145,20 +1145,20 @@ pub const PERH: *mut u8 = 0x27 as *mut u8;
 /// High Byte Period.
 pub const HPER: *mut u8 = 0x27 as *mut u8;
 
-/// Low Byte Compare A.
-pub const LCMPA: *mut u8 = 0x28 as *mut u8;
-
 /// Compare or Capture A.
 pub const CCA: *mut u16 = 0x28 as *mut u16;
+
+/// Low Byte Compare A.
+pub const LCMPA: *mut u8 = 0x28 as *mut u8;
 
 /// Compare or Capture A low byte.
 pub const CCAL: *mut u8 = 0x28 as *mut u8;
 
-/// Compare or Capture A high byte.
-pub const CCAH: *mut u8 = 0x29 as *mut u8;
-
 /// High Byte Compare A.
 pub const HCMPA: *mut u8 = 0x29 as *mut u8;
+
+/// Compare or Capture A high byte.
+pub const CCAH: *mut u8 = 0x29 as *mut u8;
 
 /// Compare or Capture B.
 pub const CCB: *mut u16 = 0x2A as *mut u16;
@@ -1175,26 +1175,20 @@ pub const HCMPB: *mut u8 = 0x2B as *mut u8;
 /// Compare or Capture B high byte.
 pub const CCBH: *mut u8 = 0x2B as *mut u8;
 
-/// Compare or Capture C low byte.
-pub const CCCL: *mut u8 = 0x2C as *mut u8;
-
 /// Low Byte Compare C.
 pub const LCMPC: *mut u8 = 0x2C as *mut u8;
+
+/// Compare or Capture C low byte.
+pub const CCCL: *mut u8 = 0x2C as *mut u8;
 
 /// Compare or Capture C.
 pub const CCC: *mut u16 = 0x2C as *mut u16;
 
-/// Compare or Capture C high byte.
-pub const CCCH: *mut u8 = 0x2D as *mut u8;
-
 /// High Byte Compare C.
 pub const HCMPC: *mut u8 = 0x2D as *mut u8;
 
-/// Compare or Capture D.
-pub const CCD: *mut u16 = 0x2E as *mut u16;
-
-/// Low Byte Compare D.
-pub const LCMPD: *mut u8 = 0x2E as *mut u8;
+/// Compare or Capture C high byte.
+pub const CCCH: *mut u8 = 0x2D as *mut u8;
 
 /// Temperature Sensor Calibration Byte 0.
 pub const TEMPSENSE0: *mut u8 = 0x2E as *mut u8;
@@ -1202,11 +1196,17 @@ pub const TEMPSENSE0: *mut u8 = 0x2E as *mut u8;
 /// Compare or Capture D low byte.
 pub const CCDL: *mut u8 = 0x2E as *mut u8;
 
-/// Temperature Sensor Calibration Byte 1.
-pub const TEMPSENSE1: *mut u8 = 0x2F as *mut u8;
+/// Low Byte Compare D.
+pub const LCMPD: *mut u8 = 0x2E as *mut u8;
+
+/// Compare or Capture D.
+pub const CCD: *mut u16 = 0x2E as *mut u16;
 
 /// Compare or Capture D high byte.
 pub const CCDH: *mut u8 = 0x2F as *mut u8;
+
+/// Temperature Sensor Calibration Byte 1.
+pub const TEMPSENSE1: *mut u8 = 0x2F as *mut u8;
 
 /// High Byte Compare D.
 pub const HCMPD: *mut u8 = 0x2F as *mut u8;
@@ -1229,14 +1229,14 @@ pub const DACA1OFFCAL: *mut u8 = 0x34 as *mut u8;
 /// DACA1 Calibration Byte 1.
 pub const DACA1GAINCAL: *mut u8 = 0x35 as *mut u8;
 
+/// Period Buffer low byte.
+pub const PERBUFL: *mut u8 = 0x36 as *mut u8;
+
 /// Period Buffer.
 pub const PERBUF: *mut u16 = 0x36 as *mut u16;
 
 /// DACB1 Calibration Byte 0.
 pub const DACB1OFFCAL: *mut u8 = 0x36 as *mut u8;
-
-/// Period Buffer low byte.
-pub const PERBUFL: *mut u8 = 0x36 as *mut u8;
 
 /// DACB1 Calibration Byte 1.
 pub const DACB1GAINCAL: *mut u8 = 0x37 as *mut u8;
@@ -1253,11 +1253,11 @@ pub const CCABUF: *mut u16 = 0x38 as *mut u16;
 /// Compare Or Capture A Buffer high byte.
 pub const CCABUFH: *mut u8 = 0x39 as *mut u8;
 
-/// Compare Or Capture B Buffer low byte.
-pub const CCBBUFL: *mut u8 = 0x3A as *mut u8;
-
 /// Calibration Byte 0.
 pub const CAL0: *mut u8 = 0x3A as *mut u8;
+
+/// Compare Or Capture B Buffer low byte.
+pub const CCBBUFL: *mut u8 = 0x3A as *mut u8;
 
 /// Compare Or Capture B Buffer.
 pub const CCBBUF: *mut u16 = 0x3A as *mut u16;
@@ -1277,11 +1277,11 @@ pub const CCCBUFL: *mut u8 = 0x3C as *mut u8;
 /// Compare Or Capture C Buffer high byte.
 pub const CCCBUFH: *mut u8 = 0x3D as *mut u8;
 
-/// Compare Or Capture D Buffer.
-pub const CCDBUF: *mut u16 = 0x3E as *mut u16;
-
 /// Compare Or Capture D Buffer low byte.
 pub const CCDBUFL: *mut u8 = 0x3E as *mut u8;
+
+/// Compare Or Capture D Buffer.
+pub const CCDBUF: *mut u16 = 0x3E as *mut u16;
 
 /// Compare Or Capture D Buffer high byte.
 pub const CCDBUFH: *mut u8 = 0x3F as *mut u8;
@@ -1293,388 +1293,388 @@ pub const FRAMENUML: *mut u8 = 0x110 as *mut u8;
 pub const FRAMENUMH: *mut u8 = 0x111 as *mut u8;
 
 /// Bitfield on register `ADDRCTRL`
-pub const SRCDIR: *mut u8 = 0x30 as *mut u8;
+pub const SRCRELOAD: u8 = 0xC0;
 
 /// Bitfield on register `ADDRCTRL`
-pub const DESTRELOAD: *mut u8 = 0xC as *mut u8;
+pub const SRCDIR: u8 = 0x30;
 
 /// Bitfield on register `ADDRCTRL`
-pub const DESTDIR: *mut u8 = 0x3 as *mut u8;
+pub const DESTDIR: u8 = 0x3;
 
 /// Bitfield on register `ADDRCTRL`
-pub const SRCRELOAD: *mut u8 = 0xC0 as *mut u8;
+pub const DESTRELOAD: u8 = 0xC;
 
 /// Bitfield on register `ADDRMASK`
-pub const ADDREN: *mut u8 = 0x1 as *mut u8;
+pub const ADDREN: u8 = 0x1;
 
 /// Bitfield on register `ANAINIT`
-pub const STARTUPDLYB: *mut u8 = 0xC as *mut u8;
+pub const STARTUPDLYB: u8 = 0xC;
 
 /// Bitfield on register `ANAINIT`
-pub const STARTUPDLYA: *mut u8 = 0x3 as *mut u8;
+pub const STARTUPDLYA: u8 = 0x3;
 
 /// Bitfield on register `AWEXLOCK`
-pub const AWEXFLOCK: *mut u8 = 0x8 as *mut u8;
+pub const AWEXELOCK: u8 = 0x4;
 
 /// Bitfield on register `AWEXLOCK`
-pub const AWEXELOCK: *mut u8 = 0x4 as *mut u8;
+pub const AWEXDLOCK: u8 = 0x2;
 
 /// Bitfield on register `AWEXLOCK`
-pub const AWEXCLOCK: *mut u8 = 0x1 as *mut u8;
+pub const AWEXFLOCK: u8 = 0x8;
 
 /// Bitfield on register `AWEXLOCK`
-pub const AWEXDLOCK: *mut u8 = 0x2 as *mut u8;
+pub const AWEXCLOCK: u8 = 0x1;
 
 /// Bitfield on register `BAUDCTRLB`
-pub const BSCALE: *mut u8 = 0xF0 as *mut u8;
+pub const BSCALE: u8 = 0xF0;
 
 /// Bitfield on register `CLKEVOUT`
-pub const CLKEVPIN: *mut u8 = 0x80 as *mut u8;
+pub const EVOUT: u8 = 0x30;
 
 /// Bitfield on register `CLKEVOUT`
-pub const RTCOUT: *mut u8 = 0x40 as *mut u8;
+pub const CLKEVPIN: u8 = 0x80;
 
 /// Bitfield on register `CLKEVOUT`
-pub const CLKOUTSEL: *mut u8 = 0xC as *mut u8;
+pub const RTCOUT: u8 = 0x40;
 
 /// Bitfield on register `CLKEVOUT`
-pub const EVOUT: *mut u8 = 0x30 as *mut u8;
+pub const CLKOUTSEL: u8 = 0xC;
 
 /// Bitfield on register `CLKEVOUT`
-pub const CLKOUT: *mut u8 = 0x3 as *mut u8;
+pub const CLKOUT: u8 = 0x3;
 
 /// Bitfield on register `CTRLA`
-pub const RXCINTLVL: *mut u8 = 0x30 as *mut u8;
+pub const DREINTLVL: u8 = 0x3;
 
 /// Bitfield on register `CTRLA`
-pub const DREINTLVL: *mut u8 = 0x3 as *mut u8;
+pub const RXCINTLVL: u8 = 0x30;
 
 /// Bitfield on register `CTRLA`
-pub const TXCINTLVL: *mut u8 = 0xC as *mut u8;
+pub const TXCINTLVL: u8 = 0xC;
 
 /// Bitfield on register `CTRLB`
-pub const MPCM: *mut u8 = 0x2 as *mut u8;
+pub const MPCM: u8 = 0x2;
 
 /// Bitfield on register `CTRLB`
-pub const TXEN: *mut u8 = 0x8 as *mut u8;
+pub const RXEN: u8 = 0x10;
 
 /// Bitfield on register `CTRLB`
-pub const CLK2X: *mut u8 = 0x4 as *mut u8;
+pub const TXB8: u8 = 0x1;
 
 /// Bitfield on register `CTRLB`
-pub const TXB8: *mut u8 = 0x1 as *mut u8;
+pub const TXEN: u8 = 0x8;
 
 /// Bitfield on register `CTRLB`
-pub const RXEN: *mut u8 = 0x10 as *mut u8;
+pub const CLK2X: u8 = 0x4;
 
 /// Bitfield on register `CTRLC`
-pub const PMODE: *mut u8 = 0x30 as *mut u8;
+pub const CMODE: u8 = 0xC0;
 
 /// Bitfield on register `CTRLC`
-pub const SBMODE: *mut u8 = 0x8 as *mut u8;
+pub const SBMODE: u8 = 0x8;
 
 /// Bitfield on register `CTRLC`
-pub const CHSIZE: *mut u8 = 0x7 as *mut u8;
+pub const PMODE: u8 = 0x30;
 
 /// Bitfield on register `CTRLC`
-pub const CMODE: *mut u8 = 0xC0 as *mut u8;
+pub const CHSIZE: u8 = 0x7;
 
 /// Bitfield on register `CTRLD`
-pub const EVDLY: *mut u8 = 0x10 as *mut u8;
+pub const EVDLY: u8 = 0x10;
 
 /// Bitfield on register `CTRLD`
-pub const EVACT: *mut u8 = 0xE0 as *mut u8;
+pub const EVACT: u8 = 0xE0;
 
 /// Bitfield on register `CTRLE`
-pub const BYTEM: *mut u8 = 0x3 as *mut u8;
+pub const BYTEM: u8 = 0x3;
 
 /// Bitfield on register `CTRLF`
-pub const CMDEN: *mut u8 = 0x3 as *mut u8;
+pub const CMDEN: u8 = 0x3;
 
 /// Bitfield on register `CURRCALIB`
-pub const CALIB: *mut u8 = 0xF as *mut u8;
+pub const CALIB: u8 = 0xF;
 
 /// Bitfield on register `CURRCTRL`
-pub const AC1CURR: *mut u8 = 0x2 as *mut u8;
+pub const CURRMODE: u8 = 0x40;
 
 /// Bitfield on register `CURRCTRL`
-pub const CURRMODE: *mut u8 = 0x40 as *mut u8;
+pub const CURRENT: u8 = 0x80;
 
 /// Bitfield on register `CURRCTRL`
-pub const CURRENT: *mut u8 = 0x80 as *mut u8;
+pub const AC1CURR: u8 = 0x2;
 
 /// Bitfield on register `CURRCTRL`
-pub const AC0CURR: *mut u8 = 0x1 as *mut u8;
+pub const AC0CURR: u8 = 0x1;
 
 /// Bitfield on register `DFLLCTRL`
-pub const RC2MCREF: *mut u8 = 0x1 as *mut u8;
+pub const RC32MCREF: u8 = 0x6;
 
 /// Bitfield on register `DFLLCTRL`
-pub const RC32MCREF: *mut u8 = 0x6 as *mut u8;
+pub const RC2MCREF: u8 = 0x1;
 
 /// Bitfield on register `EVCTRL`
-pub const EVSPLIT: *mut u8 = 0x8 as *mut u8;
+pub const EVSPLIT: u8 = 0x8;
 
 /// Bitfield on register `EVSYSLOCK`
-pub const EVSYS1LOCK: *mut u8 = 0x10 as *mut u8;
+pub const EVSYS0LOCK: u8 = 0x1;
 
 /// Bitfield on register `EVSYSLOCK`
-pub const EVSYS0LOCK: *mut u8 = 0x1 as *mut u8;
+pub const EVSYS1LOCK: u8 = 0x10;
 
 /// Bitfield on register `FDCTRL`
-pub const FDMODE: *mut u8 = 0x4 as *mut u8;
+pub const FDACT: u8 = 0x3;
 
 /// Bitfield on register `FDCTRL`
-pub const FDACT: *mut u8 = 0x3 as *mut u8;
+pub const FDDBD: u8 = 0x10;
 
 /// Bitfield on register `FDCTRL`
-pub const FDDBD: *mut u8 = 0x10 as *mut u8;
+pub const FDMODE: u8 = 0x4;
 
 /// Bitfield on register `FUSEBYTE1`
-pub const WDWP: *mut u8 = 0xF0 as *mut u8;
+pub const WDWP: u8 = 0xF0;
 
 /// Bitfield on register `FUSEBYTE1`
-pub const WDP: *mut u8 = 0xF as *mut u8;
+pub const WDP: u8 = 0xF;
 
 /// Bitfield on register `FUSEBYTE2`
-pub const BOOTRST: *mut u8 = 0x40 as *mut u8;
+pub const TOSCSEL: u8 = 0x20;
 
 /// Bitfield on register `FUSEBYTE2`
-pub const BODPD: *mut u8 = 0x3 as *mut u8;
+pub const BODPD: u8 = 0x3;
 
 /// Bitfield on register `FUSEBYTE2`
-pub const TOSCSEL: *mut u8 = 0x20 as *mut u8;
+pub const BOOTRST: u8 = 0x40;
 
 /// Bitfield on register `FUSEBYTE4`
-pub const WDLOCK: *mut u8 = 0x2 as *mut u8;
+pub const JTAGEN: u8 = 0x1;
 
 /// Bitfield on register `FUSEBYTE4`
-pub const JTAGEN: *mut u8 = 0x1 as *mut u8;
+pub const SUT: u8 = 0xC;
 
 /// Bitfield on register `FUSEBYTE4`
-pub const RSTDISBL: *mut u8 = 0x10 as *mut u8;
+pub const WDLOCK: u8 = 0x2;
 
 /// Bitfield on register `FUSEBYTE4`
-pub const SUT: *mut u8 = 0xC as *mut u8;
+pub const RSTDISBL: u8 = 0x10;
 
 /// Bitfield on register `FUSEBYTE5`
-pub const BODLVL: *mut u8 = 0x7 as *mut u8;
+pub const BODLVL: u8 = 0x7;
 
 /// Bitfield on register `FUSEBYTE5`
-pub const BODACT: *mut u8 = 0x30 as *mut u8;
+pub const BODACT: u8 = 0x30;
 
 /// Bitfield on register `FUSEBYTE5`
-pub const EESAVE: *mut u8 = 0x8 as *mut u8;
+pub const EESAVE: u8 = 0x8;
 
 /// Bitfield on register `INTCTRLA`
-pub const HUNFINTLVL: *mut u8 = 0xC as *mut u8;
+pub const HUNFINTLVL: u8 = 0xC;
 
 /// Bitfield on register `INTCTRLA`
-pub const LUNFINTLVL: *mut u8 = 0x3 as *mut u8;
+pub const LUNFINTLVL: u8 = 0x3;
 
 /// Bitfield on register `INTCTRLB`
-pub const LCMPDINTLVL: *mut u8 = 0xC0 as *mut u8;
+pub const LCMPAINTLVL: u8 = 0x3;
 
 /// Bitfield on register `INTCTRLB`
-pub const LCMPCINTLVL: *mut u8 = 0x30 as *mut u8;
+pub const LCMPDINTLVL: u8 = 0xC0;
 
 /// Bitfield on register `INTCTRLB`
-pub const LCMPAINTLVL: *mut u8 = 0x3 as *mut u8;
+pub const LCMPCINTLVL: u8 = 0x30;
 
 /// Bitfield on register `INTCTRLB`
-pub const LCMPBINTLVL: *mut u8 = 0xC as *mut u8;
+pub const LCMPBINTLVL: u8 = 0xC;
 
 /// Bitfield on register `INTFLAGS`
-pub const LCMPCIF: *mut u8 = 0x40 as *mut u8;
+pub const LCMPBIF: u8 = 0x20;
 
 /// Bitfield on register `INTFLAGS`
-pub const LCMPDIF: *mut u8 = 0x80 as *mut u8;
+pub const HUNFIF: u8 = 0x2;
 
 /// Bitfield on register `INTFLAGS`
-pub const HUNFIF: *mut u8 = 0x2 as *mut u8;
+pub const LUNFIF: u8 = 0x1;
 
 /// Bitfield on register `INTFLAGS`
-pub const LCMPBIF: *mut u8 = 0x20 as *mut u8;
+pub const LCMPAIF: u8 = 0x10;
 
 /// Bitfield on register `INTFLAGS`
-pub const LUNFIF: *mut u8 = 0x1 as *mut u8;
+pub const LCMPDIF: u8 = 0x80;
 
 /// Bitfield on register `INTFLAGS`
-pub const LCMPAIF: *mut u8 = 0x10 as *mut u8;
+pub const LCMPCIF: u8 = 0x40;
 
 /// Bitfield on register `LOCKBITS`
-pub const BLBAT: *mut u8 = 0xC as *mut u8;
+pub const BLBA: u8 = 0x30;
 
 /// Bitfield on register `LOCKBITS`
-pub const LB: *mut u8 = 0x3 as *mut u8;
+pub const LB: u8 = 0x3;
 
 /// Bitfield on register `LOCKBITS`
-pub const BLBB: *mut u8 = 0xC0 as *mut u8;
+pub const BLBAT: u8 = 0xC;
 
 /// Bitfield on register `LOCKBITS`
-pub const BLBA: *mut u8 = 0x30 as *mut u8;
+pub const BLBB: u8 = 0xC0;
 
 /// Bitfield on register `MCUCR`
-pub const JTAGD: *mut u8 = 0x1 as *mut u8;
+pub const JTAGD: u8 = 0x1;
 
 /// Bitfield on register `MUXCTRL`
-pub const MUXINT: *mut u8 = 0x78 as *mut u8;
+pub const MUXINT: u8 = 0x78;
 
 /// Bitfield on register `PLLCTRL`
-pub const PLLDIV: *mut u8 = 0x20 as *mut u8;
+pub const PLLFAC: u8 = 0x1F;
 
 /// Bitfield on register `PLLCTRL`
-pub const PLLSRC: *mut u8 = 0xC0 as *mut u8;
+pub const PLLSRC: u8 = 0xC0;
 
 /// Bitfield on register `PLLCTRL`
-pub const PLLFAC: *mut u8 = 0x1F as *mut u8;
+pub const PLLDIV: u8 = 0x20;
 
 /// Bitfield on register `PRGEN`
-pub const EVSYS: *mut u8 = 0x2 as *mut u8;
+pub const DMA: u8 = 0x1;
 
 /// Bitfield on register `PRGEN`
-pub const USB: *mut u8 = 0x40 as *mut u8;
+pub const RTC: u8 = 0x4;
 
 /// Bitfield on register `PRGEN`
-pub const RTC: *mut u8 = 0x4 as *mut u8;
+pub const USB: u8 = 0x40;
 
 /// Bitfield on register `PRGEN`
-pub const DMA: *mut u8 = 0x1 as *mut u8;
+pub const AES: u8 = 0x10;
 
 /// Bitfield on register `PRGEN`
-pub const AES: *mut u8 = 0x10 as *mut u8;
+pub const EVSYS: u8 = 0x2;
 
 /// Bitfield on register `PSCTRL`
-pub const PSADIV: *mut u8 = 0x7C as *mut u8;
+pub const PSBCDIV: u8 = 0x3;
 
 /// Bitfield on register `PSCTRL`
-pub const PSBCDIV: *mut u8 = 0x3 as *mut u8;
+pub const PSADIV: u8 = 0x7C;
 
 /// Bitfield on register `REFCTRL`
-pub const BANDGAP: *mut u8 = 0x2 as *mut u8;
+pub const BANDGAP: u8 = 0x2;
 
 /// Bitfield on register `REFCTRL`
-pub const TEMPREF: *mut u8 = 0x1 as *mut u8;
+pub const REFSEL: u8 = 0x70;
 
 /// Bitfield on register `REFCTRL`
-pub const REFSEL: *mut u8 = 0x70 as *mut u8;
+pub const TEMPREF: u8 = 0x1;
 
 /// Bitfield on register `REMAP`
-pub const TC0D: *mut u8 = 0x8 as *mut u8;
+pub const TC0D: u8 = 0x8;
 
 /// Bitfield on register `REMAP`
-pub const TC0B: *mut u8 = 0x2 as *mut u8;
+pub const TC0B: u8 = 0x2;
 
 /// Bitfield on register `REMAP`
-pub const TC0A: *mut u8 = 0x1 as *mut u8;
+pub const TC0C: u8 = 0x4;
 
 /// Bitfield on register `REMAP`
-pub const TC0C: *mut u8 = 0x4 as *mut u8;
+pub const TC0A: u8 = 0x1;
 
 /// Bitfield on register `RTCCTRL`
-pub const RTCSRC: *mut u8 = 0xE as *mut u8;
+pub const RTCSRC: u8 = 0xE;
 
 /// Bitfield on register `RTCCTRL`
-pub const RTCEN: *mut u8 = 0x1 as *mut u8;
+pub const RTCEN: u8 = 0x1;
 
 /// Bitfield on register `SCAN`
-pub const OFFSET: *mut u8 = 0xF0 as *mut u8;
+pub const OFFSET: u8 = 0xF0;
 
 /// Bitfield on register `SCAN`
-pub const SCANNUM: *mut u8 = 0xF as *mut u8;
+pub const SCANNUM: u8 = 0xF;
 
 /// Bitfield on register `SREG`
-pub const T: *mut u8 = 0x40 as *mut u8;
+pub const I: u8 = 0x80;
 
 /// Bitfield on register `SREG`
-pub const N: *mut u8 = 0x4 as *mut u8;
+pub const V: u8 = 0x8;
 
 /// Bitfield on register `SREG`
-pub const I: *mut u8 = 0x80 as *mut u8;
+pub const H: u8 = 0x20;
 
 /// Bitfield on register `SREG`
-pub const H: *mut u8 = 0x20 as *mut u8;
+pub const C: u8 = 0x1;
 
 /// Bitfield on register `SREG`
-pub const Z: *mut u8 = 0x2 as *mut u8;
+pub const T: u8 = 0x40;
 
 /// Bitfield on register `SREG`
-pub const S: *mut u8 = 0x10 as *mut u8;
+pub const S: u8 = 0x10;
 
 /// Bitfield on register `SREG`
-pub const V: *mut u8 = 0x8 as *mut u8;
+pub const N: u8 = 0x4;
 
 /// Bitfield on register `SREG`
-pub const C: *mut u8 = 0x1 as *mut u8;
+pub const Z: u8 = 0x2;
 
 /// Bitfield on register `STATUS`
-pub const WRCOL: *mut u8 = 0x40 as *mut u8;
+pub const IF: u8 = 0x80;
 
 /// Bitfield on register `STATUS`
-pub const IF: *mut u8 = 0x80 as *mut u8;
+pub const WRCOL: u8 = 0x40;
 
 /// Bitfield on register `STATUSSET`
-pub const DTLSBUFV: *mut u8 = 0x1 as *mut u8;
+pub const FDF: u8 = 0x4;
 
 /// Bitfield on register `STATUSSET`
-pub const DTHSBUFV: *mut u8 = 0x2 as *mut u8;
+pub const DTHSBUFV: u8 = 0x2;
 
 /// Bitfield on register `STATUSSET`
-pub const FDF: *mut u8 = 0x4 as *mut u8;
+pub const DTLSBUFV: u8 = 0x1;
 
 /// Bitfield on register `USBCTRL`
-pub const USBPSDIV: *mut u8 = 0x38 as *mut u8;
+pub const USBPSDIV: u8 = 0x38;
 
 /// Bitfield on register `USBCTRL`
-pub const USBSRC: *mut u8 = 0x6 as *mut u8;
+pub const USBSEN: u8 = 0x1;
 
 /// Bitfield on register `USBCTRL`
-pub const USBSEN: *mut u8 = 0x1 as *mut u8;
+pub const USBSRC: u8 = 0x6;
 
 /// Bitfield on register `VPCTRLA`
-pub const VP0MAP: *mut u8 = 0xF as *mut u8;
+pub const VP0MAP: u8 = 0xF;
 
 /// Bitfield on register `VPCTRLA`
-pub const VP1MAP: *mut u8 = 0xF0 as *mut u8;
+pub const VP1MAP: u8 = 0xF0;
 
 /// Bitfield on register `VPCTRLB`
-pub const VP3MAP: *mut u8 = 0xF0 as *mut u8;
+pub const VP3MAP: u8 = 0xF0;
 
 /// Bitfield on register `VPCTRLB`
-pub const VP2MAP: *mut u8 = 0xF as *mut u8;
+pub const VP2MAP: u8 = 0xF;
 
 /// Bitfield on register `WINCTRL`
-pub const WINTLVL: *mut u8 = 0x3 as *mut u8;
+pub const WINTLVL: u8 = 0x3;
 
 /// Bitfield on register `WINCTRL`
-pub const WINTMODE: *mut u8 = 0xC as *mut u8;
+pub const WINTMODE: u8 = 0xC;
 
 /// Bitfield on register `WINCTRL`
-pub const WEN: *mut u8 = 0x10 as *mut u8;
+pub const WEN: u8 = 0x10;
 
 /// Bitfield on register `XOSCCTRL`
-pub const X32KLPM: *mut u8 = 0x20 as *mut u8;
+pub const XOSCPWR: u8 = 0x10;
 
 /// Bitfield on register `XOSCCTRL`
-pub const XOSCPWR: *mut u8 = 0x10 as *mut u8;
+pub const FRQRANGE: u8 = 0xC0;
 
 /// Bitfield on register `XOSCCTRL`
-pub const XOSCSEL: *mut u8 = 0xF as *mut u8;
+pub const X32KLPM: u8 = 0x20;
 
 /// Bitfield on register `XOSCCTRL`
-pub const FRQRANGE: *mut u8 = 0xC0 as *mut u8;
+pub const XOSCSEL: u8 = 0xF;
 
 /// Bitfield on register `XOSCFAIL`
-pub const PLLFDEN: *mut u8 = 0x4 as *mut u8;
+pub const XOSCFDEN: u8 = 0x1;
 
 /// Bitfield on register `XOSCFAIL`
-pub const PLLFDIF: *mut u8 = 0x8 as *mut u8;
+pub const PLLFDIF: u8 = 0x8;
 
 /// Bitfield on register `XOSCFAIL`
-pub const XOSCFDIF: *mut u8 = 0x2 as *mut u8;
+pub const XOSCFDIF: u8 = 0x2;
 
 /// Bitfield on register `XOSCFAIL`
-pub const XOSCFDEN: *mut u8 = 0x1 as *mut u8;
+pub const PLLFDEN: u8 = 0x4;
 
 /// Hysteresis mode selection
 #[allow(non_upper_case_globals)]

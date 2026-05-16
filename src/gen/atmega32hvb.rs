@@ -14,11 +14,11 @@
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
+/// | SUT | 11100 |
 /// | EESAVE | 1000000 |
-/// | WDTON | 10000000 |
 /// | SPIEN | 100000 |
 /// | OSCSEL | 11 |
-/// | SUT | 11100 |
+/// | WDTON | 10000000 |
 pub const LOW: *mut u8 = 0x0 as *mut u8;
 
 /// `LOCKBIT` register
@@ -27,9 +27,9 @@ pub const LOW: *mut u8 = 0x0 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | LB | 11 |
-/// | BLB0 | 1100 |
 /// | BLB1 | 110000 |
+/// | BLB0 | 1100 |
+/// | LB | 11 |
 pub const LOCKBIT: *mut u8 = 0x0 as *mut u8;
 
 /// `HIGH` register
@@ -38,10 +38,10 @@ pub const LOCKBIT: *mut u8 = 0x0 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | BOOTSZ | 110 |
-/// | BOOTRST | 1 |
-/// | DWEN | 1000 |
 /// | CKDIV8 | 10000 |
+/// | DWEN | 1000 |
+/// | BOOTRST | 1 |
+/// | BOOTSZ | 110 |
 pub const HIGH: *mut u8 = 0x1 as *mut u8;
 
 /// Port A Input Pins.
@@ -74,10 +74,10 @@ pub const PORTC: *mut u8 = 0x28 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | TOV0 | 1 |
-/// | OCF0B | 100 |
 /// | OCF0A | 10 |
+/// | OCF0B | 100 |
 /// | ICF0 | 1000 |
+/// | TOV0 | 1 |
 pub const TIFR0: *mut u8 = 0x35 as *mut u8;
 
 /// Timer/Counter Interrupt Flag register.
@@ -86,10 +86,10 @@ pub const TIFR0: *mut u8 = 0x35 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | OCF1B | 100 |
-/// | OCF1A | 10 |
-/// | ICF1 | 1000 |
 /// | TOV1 | 1 |
+/// | OCF1A | 10 |
+/// | OCF1B | 100 |
+/// | ICF1 | 1000 |
 pub const TIFR1: *mut u8 = 0x36 as *mut u8;
 
 /// Oscillator Sampling Interface Control and Status Register.
@@ -98,8 +98,8 @@ pub const TIFR1: *mut u8 = 0x36 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | OSISEL0 | 10000 |
 /// | OSIEN | 1 |
+/// | OSISEL0 | 10000 |
 /// | OSIST | 10 |
 pub const OSICSR: *mut u8 = 0x37 as *mut u8;
 
@@ -139,21 +139,21 @@ pub const GPIOR0: *mut u8 = 0x3E as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | EERIE | 1000 |
-/// | EERE | 1 |
+/// | EEPM | 110000 |
 /// | EEPE | 10 |
 /// | EEMPE | 100 |
-/// | EEPM | 110000 |
+/// | EERIE | 1000 |
+/// | EERE | 1 |
 pub const EECR: *mut u8 = 0x3F as *mut u8;
 
 /// EEPROM Data Register.
 pub const EEDR: *mut u8 = 0x40 as *mut u8;
 
-/// EEPROM Read/Write Access low byte.
-pub const EEARL: *mut u8 = 0x41 as *mut u8;
-
 /// EEPROM Read/Write Access.
 pub const EEAR: *mut u16 = 0x41 as *mut u16;
+
+/// EEPROM Read/Write Access low byte.
+pub const EEARL: *mut u8 = 0x41 as *mut u8;
 
 /// EEPROM Read/Write Access high byte.
 pub const EEARH: *mut u8 = 0x42 as *mut u8;
@@ -174,12 +174,12 @@ pub const GTCCR: *mut u8 = 0x43 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | ICNC0 | 100000 |
-/// | WGM00 | 1 |
+/// | ICS0 | 1000 |
 /// | ICEN0 | 1000000 |
+/// | WGM00 | 1 |
 /// | TCW0 | 10000000 |
 /// | ICES0 | 10000 |
-/// | ICS0 | 1000 |
+/// | ICNC0 | 100000 |
 pub const TCCR0A: *mut u8 = 0x44 as *mut u8;
 
 /// Timer/Counter0 Control Register B.
@@ -188,9 +188,9 @@ pub const TCCR0A: *mut u8 = 0x44 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | CS01 | 10 |
-/// | CS02 | 100 |
 /// | CS00 | 1 |
+/// | CS02 | 100 |
+/// | CS01 | 10 |
 pub const TCCR0B: *mut u8 = 0x45 as *mut u8;
 
 /// Timer Counter 0 Bytes.
@@ -220,13 +220,13 @@ pub const GPIOR2: *mut u8 = 0x4B as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | DORD | 100000 |
-/// | MSTR | 10000 |
-/// | SPR | 11 |
 /// | SPIE | 10000000 |
+/// | SPR | 11 |
+/// | MSTR | 10000 |
 /// | SPE | 1000000 |
-/// | CPOL | 1000 |
 /// | CPHA | 100 |
+/// | DORD | 100000 |
+/// | CPOL | 1000 |
 pub const SPCR: *mut u8 = 0x4C as *mut u8;
 
 /// SPI Status Register.
@@ -249,8 +249,8 @@ pub const SPDR: *mut u8 = 0x4E as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | SM | 1110 |
 /// | SE | 1 |
+/// | SM | 1110 |
 pub const SMCR: *mut u8 = 0x53 as *mut u8;
 
 /// MCU Status Register.
@@ -259,11 +259,11 @@ pub const SMCR: *mut u8 = 0x53 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | BODRF | 100 |
 /// | EXTRF | 10 |
+/// | PORF | 1 |
 /// | OCDRF | 10000 |
 /// | WDRF | 1000 |
-/// | PORF | 1 |
+/// | BODRF | 100 |
 pub const MCUSR: *mut u8 = 0x54 as *mut u8;
 
 /// MCU Control Register.
@@ -272,10 +272,10 @@ pub const MCUSR: *mut u8 = 0x54 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | IVCE | 1 |
-/// | CKOE | 100000 |
 /// | IVSEL | 10 |
+/// | CKOE | 100000 |
 /// | PUD | 10000 |
+/// | IVCE | 1 |
 pub const MCUCR: *mut u8 = 0x55 as *mut u8;
 
 /// Store Program Memory Control and Status Register.
@@ -284,14 +284,14 @@ pub const MCUCR: *mut u8 = 0x55 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | SPMEN | 1 |
-/// | PGWRT | 100 |
-/// | SPMIE | 10000000 |
-/// | PGERS | 10 |
-/// | SIGRD | 100000 |
-/// | RWWSB | 1000000 |
 /// | LBSET | 1000 |
+/// | PGERS | 10 |
+/// | SPMEN | 1 |
+/// | SPMIE | 10000000 |
+/// | RWWSB | 1000000 |
+/// | SIGRD | 100000 |
 /// | RWWSRE | 10000 |
+/// | PGWRT | 100 |
 pub const SPMCSR: *mut u8 = 0x57 as *mut u8;
 
 /// Stack Pointer.
@@ -309,14 +309,14 @@ pub const SPH: *mut u8 = 0x5E as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | Z | 10 |
+/// | T | 1000000 |
 /// | V | 1000 |
+/// | Z | 10 |
+/// | S | 10000 |
+/// | C | 1 |
 /// | I | 10000000 |
 /// | H | 100000 |
 /// | N | 100 |
-/// | T | 1000000 |
-/// | S | 10000 |
-/// | C | 1 |
 pub const SREG: *mut u8 = 0x5F as *mut u8;
 
 /// Watchdog Timer Control Register.
@@ -325,11 +325,11 @@ pub const SREG: *mut u8 = 0x5F as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | WDP | 100111 |
-/// | WDIE | 1000000 |
-/// | WDIF | 10000000 |
-/// | WDCE | 10000 |
 /// | WDE | 1000 |
+/// | WDCE | 10000 |
+/// | WDIE | 1000000 |
+/// | WDP | 100111 |
+/// | WDIF | 10000000 |
 pub const WDTCSR: *mut u8 = 0x60 as *mut u8;
 
 /// Clock Prescale Register.
@@ -349,11 +349,11 @@ pub const CLKPR: *mut u8 = 0x61 as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | PRSPI | 1000 |
-/// | PRVRM | 100000 |
-/// | PRVADC | 1 |
-/// | PRTIM0 | 10 |
 /// | PRTIM1 | 100 |
 /// | PRTWI | 1000000 |
+/// | PRVRM | 100000 |
+/// | PRTIM0 | 10 |
+/// | PRVADC | 1 |
 pub const PRR0: *mut u8 = 0x64 as *mut u8;
 
 /// Fast Oscillator Calibration Value.
@@ -393,9 +393,9 @@ pub const PCMSK1: *mut u8 = 0x6C as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | TOIE0 | 1 |
-/// | ICIE0 | 1000 |
 /// | OCIE0A | 10 |
 /// | OCIE0B | 100 |
+/// | ICIE0 | 1000 |
 pub const TIMSK0: *mut u8 = 0x6E as *mut u8;
 
 /// Timer/Counter Interrupt Mask Register.
@@ -405,16 +405,16 @@ pub const TIMSK0: *mut u8 = 0x6E as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | TOIE1 | 1 |
-/// | OCIE1A | 10 |
 /// | OCIE1B | 100 |
 /// | ICIE1 | 1000 |
+/// | OCIE1A | 10 |
 pub const TIMSK1: *mut u8 = 0x6F as *mut u8;
-
-/// VADC Data Register Bytes low byte.
-pub const VADCL: *mut u8 = 0x78 as *mut u8;
 
 /// VADC Data Register Bytes.
 pub const VADC: *mut u16 = 0x78 as *mut u16;
+
+/// VADC Data Register Bytes low byte.
+pub const VADCL: *mut u8 = 0x78 as *mut u8;
 
 /// VADC Data Register Bytes high byte.
 pub const VADCH: *mut u8 = 0x79 as *mut u8;
@@ -425,10 +425,10 @@ pub const VADCH: *mut u8 = 0x79 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | VADCCIF | 10 |
-/// | VADEN | 1000 |
 /// | VADSC | 100 |
 /// | VADCCIE | 1 |
+/// | VADEN | 1000 |
+/// | VADCCIF | 10 |
 pub const VADCSR: *mut u8 = 0x7A as *mut u8;
 
 /// The VADC multiplexer Selection Register.
@@ -440,8 +440,8 @@ pub const VADMUX: *mut u8 = 0x7C as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | PA1DID | 10 |
 /// | PA0DID | 1 |
+/// | PA1DID | 10 |
 pub const DIDR0: *mut u8 = 0x7E as *mut u8;
 
 /// Timer/Counter 1 Control Register A.
@@ -450,12 +450,12 @@ pub const DIDR0: *mut u8 = 0x7E as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
+/// | TCW1 | 10000000 |
 /// | ICNC1 | 100000 |
 /// | WGM10 | 1 |
-/// | TCW1 | 10000000 |
-/// | ICS1 | 1000 |
-/// | ICEN1 | 1000000 |
 /// | ICES1 | 10000 |
+/// | ICEN1 | 1000000 |
+/// | ICS1 | 1000 |
 pub const TCCR1A: *mut u8 = 0x80 as *mut u8;
 
 /// Timer/Counter1 Control Register B.
@@ -491,8 +491,8 @@ pub const TWBR: *mut u8 = 0xB8 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | TWS | 11111000 |
 /// | TWPS | 11 |
+/// | TWS | 11111000 |
 pub const TWSR: *mut u8 = 0xB9 as *mut u8;
 
 /// TWI (Slave) Address register.
@@ -514,13 +514,13 @@ pub const TWDR: *mut u8 = 0xBB as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | TWSTO | 10000 |
-/// | TWSTA | 100000 |
-/// | TWEA | 1000000 |
-/// | TWIE | 1 |
-/// | TWEN | 100 |
-/// | TWINT | 10000000 |
 /// | TWWC | 1000 |
+/// | TWSTA | 100000 |
+/// | TWINT | 10000000 |
+/// | TWSTO | 10000 |
+/// | TWEN | 100 |
+/// | TWIE | 1 |
+/// | TWEA | 1000000 |
 pub const TWCR: *mut u8 = 0xBC as *mut u8;
 
 /// TWI (Slave) Address Mask Register.
@@ -539,8 +539,8 @@ pub const TWAMR: *mut u8 = 0xBD as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | TWBCIF | 10000000 |
-/// | TWBCIE | 1000000 |
 /// | TWBCIP | 1 |
+/// | TWBCIE | 1000000 |
 /// | TWBDT | 110 |
 pub const TWBCSR: *mut u8 = 0xBE as *mut u8;
 
@@ -550,10 +550,10 @@ pub const TWBCSR: *mut u8 = 0xBE as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
+/// | ROCS | 10000000 |
+/// | ROCWIF | 10 |
 /// | ROCWIE | 1 |
 /// | ROCD | 10000 |
-/// | ROCWIF | 10 |
-/// | ROCS | 10000000 |
 pub const ROCR: *mut u8 = 0xC8 as *mut u8;
 
 /// Bandgap Calibration Register.
@@ -574,10 +574,10 @@ pub const BGCRR: *mut u8 = 0xD1 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | BGSCDIE | 1 |
 /// | BGSCDIF | 10 |
-/// | BGD | 100000 |
 /// | BGSCDE | 10000 |
+/// | BGSCDIE | 1 |
+/// | BGD | 100000 |
 pub const BGCSR: *mut u8 = 0xD2 as *mut u8;
 
 /// Charger Detect Control and Status Register.
@@ -587,9 +587,9 @@ pub const BGCSR: *mut u8 = 0xD2 as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | BATTPVL | 10000 |
-/// | CHGDIF | 10 |
 /// | CHGDIE | 1 |
 /// | CHGDISC | 1100 |
+/// | CHGDIF | 10 |
 pub const CHGDCSR: *mut u8 = 0xD4 as *mut u8;
 
 /// ADC Accumulate Current.
@@ -604,11 +604,11 @@ pub const CADAC2: *mut u8 = 0xE2 as *mut u8;
 /// ADC Accumulate Current.
 pub const CADAC3: *mut u8 = 0xE3 as *mut u8;
 
-/// CC-ADC Instantaneous Current low byte.
-pub const CADICL: *mut u8 = 0xE4 as *mut u8;
-
 /// CC-ADC Instantaneous Current.
 pub const CADIC: *mut u16 = 0xE4 as *mut u16;
+
+/// CC-ADC Instantaneous Current low byte.
+pub const CADICL: *mut u8 = 0xE4 as *mut u8;
 
 /// CC-ADC Instantaneous Current high byte.
 pub const CADICH: *mut u8 = 0xE5 as *mut u8;
@@ -620,11 +620,11 @@ pub const CADICH: *mut u8 = 0xE5 as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | CADPOL | 1000000 |
-/// | CADEN | 10000000 |
 /// | CADAS | 11000 |
-/// | CADSE | 1 |
-/// | CADUB | 100000 |
 /// | CADSI | 110 |
+/// | CADSE | 1 |
+/// | CADEN | 10000000 |
+/// | CADUB | 100000 |
 pub const CADCSRA: *mut u8 = 0xE6 as *mut u8;
 
 /// CC-ADC Control and Status Register B.
@@ -635,10 +635,10 @@ pub const CADCSRA: *mut u8 = 0xE6 as *mut u8;
 /// | ---- | ------------- |
 /// | CADICIF | 1 |
 /// | CADACIF | 100 |
-/// | CADACIE | 1000000 |
-/// | CADRCIE | 100000 |
 /// | CADICIE | 10000 |
+/// | CADRCIE | 100000 |
 /// | CADRCIF | 10 |
+/// | CADACIE | 1000000 |
 pub const CADCSRB: *mut u8 = 0xE7 as *mut u8;
 
 /// CC-ADC Control and Status Register C.
@@ -663,9 +663,9 @@ pub const CADRDC: *mut u8 = 0xEA as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | CFE | 1 |
+/// | DUVRD | 1000 |
 /// | CPS | 100 |
 /// | DFE | 10 |
-/// | DUVRD | 1000 |
 pub const FCSR: *mut u8 = 0xF0 as *mut u8;
 
 /// Cell Balancing Control Register.
@@ -683,11 +683,11 @@ pub const CBCR: *mut u8 = 0xF1 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | DHCIE | 10 |
+/// | CHCIE | 1 |
 /// | DOCIE | 1000 |
 /// | SCIE | 10000 |
+/// | DHCIE | 10 |
 /// | COCIE | 100 |
-/// | CHCIE | 1 |
 pub const BPIMSK: *mut u8 = 0xF2 as *mut u8;
 
 /// Battery Protection Interrupt Flag Register.
@@ -696,11 +696,11 @@ pub const BPIMSK: *mut u8 = 0xF2 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
+/// | DHCIF | 10 |
+/// | SCIF | 10000 |
+/// | DOCIF | 1000 |
 /// | CHCIF | 1 |
 /// | COCIF | 100 |
-/// | DOCIF | 1000 |
-/// | SCIF | 10000 |
-/// | DHCIF | 10 |
 pub const BPIFR: *mut u8 = 0xF3 as *mut u8;
 
 /// Battery Protection Short-Circuit Detection Level Register.
@@ -752,11 +752,11 @@ pub const BPHCTR: *mut u8 = 0xFC as *mut u8;
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
 /// | SCD | 10000 |
-/// | COCD | 100 |
 /// | EPID | 100000 |
-/// | DHCD | 10 |
 /// | DOCD | 1000 |
 /// | CHCD | 1 |
+/// | DHCD | 10 |
+/// | COCD | 100 |
 pub const BPCR: *mut u8 = 0xFD as *mut u8;
 
 /// Battery Protection Parameter Lock Register.
@@ -770,562 +770,562 @@ pub const BPCR: *mut u8 = 0xFD as *mut u8;
 pub const BPPLR: *mut u8 = 0xFE as *mut u8;
 
 /// Bitfield on register `BGCCR`
-pub const BGCC: *mut u8 = 0x3F as *mut u8;
+pub const BGCC: u8 = 0x3F;
 
 /// Bitfield on register `BGCSR`
-pub const BGSCDIE: *mut u8 = 0x1 as *mut u8;
+pub const BGSCDIF: u8 = 0x2;
 
 /// Bitfield on register `BGCSR`
-pub const BGSCDIF: *mut u8 = 0x2 as *mut u8;
+pub const BGSCDE: u8 = 0x10;
 
 /// Bitfield on register `BGCSR`
-pub const BGD: *mut u8 = 0x20 as *mut u8;
+pub const BGSCDIE: u8 = 0x1;
 
 /// Bitfield on register `BGCSR`
-pub const BGSCDE: *mut u8 = 0x10 as *mut u8;
+pub const BGD: u8 = 0x20;
 
 /// Bitfield on register `BPCR`
-pub const SCD: *mut u8 = 0x10 as *mut u8;
+pub const SCD: u8 = 0x10;
 
 /// Bitfield on register `BPCR`
-pub const COCD: *mut u8 = 0x4 as *mut u8;
+pub const EPID: u8 = 0x20;
 
 /// Bitfield on register `BPCR`
-pub const EPID: *mut u8 = 0x20 as *mut u8;
+pub const DOCD: u8 = 0x8;
 
 /// Bitfield on register `BPCR`
-pub const DHCD: *mut u8 = 0x2 as *mut u8;
+pub const CHCD: u8 = 0x1;
 
 /// Bitfield on register `BPCR`
-pub const DOCD: *mut u8 = 0x8 as *mut u8;
+pub const DHCD: u8 = 0x2;
 
 /// Bitfield on register `BPCR`
-pub const CHCD: *mut u8 = 0x1 as *mut u8;
+pub const COCD: u8 = 0x4;
 
 /// Bitfield on register `BPHCTR`
-pub const HCPT: *mut u8 = 0x3F as *mut u8;
+pub const HCPT: u8 = 0x3F;
 
 /// Bitfield on register `BPIFR`
-pub const CHCIF: *mut u8 = 0x1 as *mut u8;
+pub const DHCIF: u8 = 0x2;
 
 /// Bitfield on register `BPIFR`
-pub const COCIF: *mut u8 = 0x4 as *mut u8;
+pub const SCIF: u8 = 0x10;
 
 /// Bitfield on register `BPIFR`
-pub const DOCIF: *mut u8 = 0x8 as *mut u8;
+pub const DOCIF: u8 = 0x8;
 
 /// Bitfield on register `BPIFR`
-pub const SCIF: *mut u8 = 0x10 as *mut u8;
+pub const CHCIF: u8 = 0x1;
 
 /// Bitfield on register `BPIFR`
-pub const DHCIF: *mut u8 = 0x2 as *mut u8;
+pub const COCIF: u8 = 0x4;
 
 /// Bitfield on register `BPIMSK`
-pub const DHCIE: *mut u8 = 0x2 as *mut u8;
+pub const CHCIE: u8 = 0x1;
 
 /// Bitfield on register `BPIMSK`
-pub const DOCIE: *mut u8 = 0x8 as *mut u8;
+pub const DOCIE: u8 = 0x8;
 
 /// Bitfield on register `BPIMSK`
-pub const SCIE: *mut u8 = 0x10 as *mut u8;
+pub const SCIE: u8 = 0x10;
 
 /// Bitfield on register `BPIMSK`
-pub const COCIE: *mut u8 = 0x4 as *mut u8;
+pub const DHCIE: u8 = 0x2;
 
 /// Bitfield on register `BPIMSK`
-pub const CHCIE: *mut u8 = 0x1 as *mut u8;
+pub const COCIE: u8 = 0x4;
 
 /// Bitfield on register `BPOCTR`
-pub const OCPT: *mut u8 = 0x3F as *mut u8;
+pub const OCPT: u8 = 0x3F;
 
 /// Bitfield on register `BPPLR`
-pub const BPPL: *mut u8 = 0x1 as *mut u8;
+pub const BPPL: u8 = 0x1;
 
 /// Bitfield on register `BPPLR`
-pub const BPPLE: *mut u8 = 0x2 as *mut u8;
+pub const BPPLE: u8 = 0x2;
 
 /// Bitfield on register `BPSCTR`
-pub const SCPT: *mut u8 = 0x7F as *mut u8;
+pub const SCPT: u8 = 0x7F;
 
 /// Bitfield on register `CADCSRA`
-pub const CADPOL: *mut u8 = 0x40 as *mut u8;
+pub const CADPOL: u8 = 0x40;
 
 /// Bitfield on register `CADCSRA`
-pub const CADEN: *mut u8 = 0x80 as *mut u8;
+pub const CADAS: u8 = 0x18;
 
 /// Bitfield on register `CADCSRA`
-pub const CADAS: *mut u8 = 0x18 as *mut u8;
+pub const CADSI: u8 = 0x6;
 
 /// Bitfield on register `CADCSRA`
-pub const CADSE: *mut u8 = 0x1 as *mut u8;
+pub const CADSE: u8 = 0x1;
 
 /// Bitfield on register `CADCSRA`
-pub const CADUB: *mut u8 = 0x20 as *mut u8;
+pub const CADEN: u8 = 0x80;
 
 /// Bitfield on register `CADCSRA`
-pub const CADSI: *mut u8 = 0x6 as *mut u8;
+pub const CADUB: u8 = 0x20;
 
 /// Bitfield on register `CADCSRB`
-pub const CADICIF: *mut u8 = 0x1 as *mut u8;
+pub const CADICIF: u8 = 0x1;
 
 /// Bitfield on register `CADCSRB`
-pub const CADACIF: *mut u8 = 0x4 as *mut u8;
+pub const CADACIF: u8 = 0x4;
 
 /// Bitfield on register `CADCSRB`
-pub const CADACIE: *mut u8 = 0x40 as *mut u8;
+pub const CADICIE: u8 = 0x10;
 
 /// Bitfield on register `CADCSRB`
-pub const CADRCIE: *mut u8 = 0x20 as *mut u8;
+pub const CADRCIE: u8 = 0x20;
 
 /// Bitfield on register `CADCSRB`
-pub const CADICIE: *mut u8 = 0x10 as *mut u8;
+pub const CADRCIF: u8 = 0x2;
 
 /// Bitfield on register `CADCSRB`
-pub const CADRCIF: *mut u8 = 0x2 as *mut u8;
+pub const CADACIE: u8 = 0x40;
 
 /// Bitfield on register `CADCSRC`
-pub const CADVSE: *mut u8 = 0x1 as *mut u8;
+pub const CADVSE: u8 = 0x1;
 
 /// Bitfield on register `CBCR`
-pub const CBE: *mut u8 = 0xF as *mut u8;
+pub const CBE: u8 = 0xF;
 
 /// Bitfield on register `CHGDCSR`
-pub const BATTPVL: *mut u8 = 0x10 as *mut u8;
+pub const BATTPVL: u8 = 0x10;
 
 /// Bitfield on register `CHGDCSR`
-pub const CHGDIF: *mut u8 = 0x2 as *mut u8;
+pub const CHGDIE: u8 = 0x1;
 
 /// Bitfield on register `CHGDCSR`
-pub const CHGDIE: *mut u8 = 0x1 as *mut u8;
+pub const CHGDISC: u8 = 0xC;
 
 /// Bitfield on register `CHGDCSR`
-pub const CHGDISC: *mut u8 = 0xC as *mut u8;
+pub const CHGDIF: u8 = 0x2;
 
 /// Bitfield on register `CLKPR`
-pub const CLKPS: *mut u8 = 0x3 as *mut u8;
+pub const CLKPS: u8 = 0x3;
 
 /// Bitfield on register `CLKPR`
-pub const CLKPCE: *mut u8 = 0x80 as *mut u8;
+pub const CLKPCE: u8 = 0x80;
 
 /// Bitfield on register `DIDR0`
-pub const PA1DID: *mut u8 = 0x2 as *mut u8;
+pub const PA0DID: u8 = 0x1;
 
 /// Bitfield on register `DIDR0`
-pub const PA0DID: *mut u8 = 0x1 as *mut u8;
+pub const PA1DID: u8 = 0x2;
 
 /// Bitfield on register `EECR`
-pub const EERIE: *mut u8 = 0x8 as *mut u8;
+pub const EEPM: u8 = 0x30;
 
 /// Bitfield on register `EECR`
-pub const EERE: *mut u8 = 0x1 as *mut u8;
+pub const EEPE: u8 = 0x2;
 
 /// Bitfield on register `EECR`
-pub const EEPE: *mut u8 = 0x2 as *mut u8;
+pub const EEMPE: u8 = 0x4;
 
 /// Bitfield on register `EECR`
-pub const EEMPE: *mut u8 = 0x4 as *mut u8;
+pub const EERIE: u8 = 0x8;
 
 /// Bitfield on register `EECR`
-pub const EEPM: *mut u8 = 0x30 as *mut u8;
+pub const EERE: u8 = 0x1;
 
 /// Bitfield on register `EICRA`
-pub const ISC0: *mut u8 = 0x3 as *mut u8;
+pub const ISC0: u8 = 0x3;
 
 /// Bitfield on register `EICRA`
-pub const ISC2: *mut u8 = 0x30 as *mut u8;
+pub const ISC2: u8 = 0x30;
 
 /// Bitfield on register `EICRA`
-pub const ISC3: *mut u8 = 0xC0 as *mut u8;
+pub const ISC3: u8 = 0xC0;
 
 /// Bitfield on register `EICRA`
-pub const ISC1: *mut u8 = 0xC as *mut u8;
+pub const ISC1: u8 = 0xC;
 
 /// Bitfield on register `EIFR`
-pub const INTF: *mut u8 = 0xF as *mut u8;
+pub const INTF: u8 = 0xF;
 
 /// Bitfield on register `EIMSK`
-pub const INT: *mut u8 = 0xF as *mut u8;
+pub const INT: u8 = 0xF;
 
 /// Bitfield on register `FCSR`
-pub const CFE: *mut u8 = 0x1 as *mut u8;
+pub const CFE: u8 = 0x1;
 
 /// Bitfield on register `FCSR`
-pub const CPS: *mut u8 = 0x4 as *mut u8;
+pub const DUVRD: u8 = 0x8;
 
 /// Bitfield on register `FCSR`
-pub const DFE: *mut u8 = 0x2 as *mut u8;
+pub const CPS: u8 = 0x4;
 
 /// Bitfield on register `FCSR`
-pub const DUVRD: *mut u8 = 0x8 as *mut u8;
+pub const DFE: u8 = 0x2;
 
 /// Bitfield on register `GTCCR`
-pub const PSRSYNC: *mut u8 = 0x1 as *mut u8;
+pub const PSRSYNC: u8 = 0x1;
 
 /// Bitfield on register `GTCCR`
-pub const TSM: *mut u8 = 0x80 as *mut u8;
+pub const TSM: u8 = 0x80;
 
 /// Bitfield on register `HIGH`
-pub const BOOTSZ: *mut u8 = 0x6 as *mut u8;
+pub const CKDIV8: u8 = 0x10;
 
 /// Bitfield on register `HIGH`
-pub const BOOTRST: *mut u8 = 0x1 as *mut u8;
+pub const DWEN: u8 = 0x8;
 
 /// Bitfield on register `HIGH`
-pub const DWEN: *mut u8 = 0x8 as *mut u8;
+pub const BOOTRST: u8 = 0x1;
 
 /// Bitfield on register `HIGH`
-pub const CKDIV8: *mut u8 = 0x10 as *mut u8;
+pub const BOOTSZ: u8 = 0x6;
 
 /// Bitfield on register `LOCKBIT`
-pub const LB: *mut u8 = 0x3 as *mut u8;
+pub const BLB1: u8 = 0x30;
 
 /// Bitfield on register `LOCKBIT`
-pub const BLB0: *mut u8 = 0xC as *mut u8;
+pub const BLB0: u8 = 0xC;
 
 /// Bitfield on register `LOCKBIT`
-pub const BLB1: *mut u8 = 0x30 as *mut u8;
+pub const LB: u8 = 0x3;
 
 /// Bitfield on register `LOW`
-pub const EESAVE: *mut u8 = 0x40 as *mut u8;
+pub const SUT: u8 = 0x1C;
 
 /// Bitfield on register `LOW`
-pub const WDTON: *mut u8 = 0x80 as *mut u8;
+pub const EESAVE: u8 = 0x40;
 
 /// Bitfield on register `LOW`
-pub const SPIEN: *mut u8 = 0x20 as *mut u8;
+pub const SPIEN: u8 = 0x20;
 
 /// Bitfield on register `LOW`
-pub const OSCSEL: *mut u8 = 0x3 as *mut u8;
+pub const OSCSEL: u8 = 0x3;
 
 /// Bitfield on register `LOW`
-pub const SUT: *mut u8 = 0x1C as *mut u8;
+pub const WDTON: u8 = 0x80;
 
 /// Bitfield on register `MCUCR`
-pub const IVCE: *mut u8 = 0x1 as *mut u8;
+pub const IVSEL: u8 = 0x2;
 
 /// Bitfield on register `MCUCR`
-pub const CKOE: *mut u8 = 0x20 as *mut u8;
+pub const CKOE: u8 = 0x20;
 
 /// Bitfield on register `MCUCR`
-pub const IVSEL: *mut u8 = 0x2 as *mut u8;
+pub const PUD: u8 = 0x10;
 
 /// Bitfield on register `MCUCR`
-pub const PUD: *mut u8 = 0x10 as *mut u8;
+pub const IVCE: u8 = 0x1;
 
 /// Bitfield on register `MCUSR`
-pub const BODRF: *mut u8 = 0x4 as *mut u8;
+pub const EXTRF: u8 = 0x2;
 
 /// Bitfield on register `MCUSR`
-pub const EXTRF: *mut u8 = 0x2 as *mut u8;
+pub const PORF: u8 = 0x1;
 
 /// Bitfield on register `MCUSR`
-pub const OCDRF: *mut u8 = 0x10 as *mut u8;
+pub const OCDRF: u8 = 0x10;
 
 /// Bitfield on register `MCUSR`
-pub const WDRF: *mut u8 = 0x8 as *mut u8;
+pub const WDRF: u8 = 0x8;
 
 /// Bitfield on register `MCUSR`
-pub const PORF: *mut u8 = 0x1 as *mut u8;
+pub const BODRF: u8 = 0x4;
 
 /// Bitfield on register `OSICSR`
-pub const OSISEL0: *mut u8 = 0x10 as *mut u8;
+pub const OSIEN: u8 = 0x1;
 
 /// Bitfield on register `OSICSR`
-pub const OSIEN: *mut u8 = 0x1 as *mut u8;
+pub const OSISEL0: u8 = 0x10;
 
 /// Bitfield on register `OSICSR`
-pub const OSIST: *mut u8 = 0x2 as *mut u8;
+pub const OSIST: u8 = 0x2;
 
 /// Bitfield on register `PCICR`
-pub const PCIE: *mut u8 = 0x3 as *mut u8;
+pub const PCIE: u8 = 0x3;
 
 /// Bitfield on register `PCIFR`
-pub const PCIF: *mut u8 = 0x3 as *mut u8;
+pub const PCIF: u8 = 0x3;
 
 /// Bitfield on register `PRR0`
-pub const PRSPI: *mut u8 = 0x8 as *mut u8;
+pub const PRSPI: u8 = 0x8;
 
 /// Bitfield on register `PRR0`
-pub const PRVRM: *mut u8 = 0x20 as *mut u8;
+pub const PRTIM1: u8 = 0x4;
 
 /// Bitfield on register `PRR0`
-pub const PRVADC: *mut u8 = 0x1 as *mut u8;
+pub const PRTWI: u8 = 0x40;
 
 /// Bitfield on register `PRR0`
-pub const PRTIM0: *mut u8 = 0x2 as *mut u8;
+pub const PRVRM: u8 = 0x20;
 
 /// Bitfield on register `PRR0`
-pub const PRTIM1: *mut u8 = 0x4 as *mut u8;
+pub const PRTIM0: u8 = 0x2;
 
 /// Bitfield on register `PRR0`
-pub const PRTWI: *mut u8 = 0x40 as *mut u8;
+pub const PRVADC: u8 = 0x1;
 
 /// Bitfield on register `ROCR`
-pub const ROCWIE: *mut u8 = 0x1 as *mut u8;
+pub const ROCS: u8 = 0x80;
 
 /// Bitfield on register `ROCR`
-pub const ROCD: *mut u8 = 0x10 as *mut u8;
+pub const ROCWIF: u8 = 0x2;
 
 /// Bitfield on register `ROCR`
-pub const ROCWIF: *mut u8 = 0x2 as *mut u8;
+pub const ROCWIE: u8 = 0x1;
 
 /// Bitfield on register `ROCR`
-pub const ROCS: *mut u8 = 0x80 as *mut u8;
+pub const ROCD: u8 = 0x10;
 
 /// Bitfield on register `SMCR`
-pub const SM: *mut u8 = 0xE as *mut u8;
+pub const SE: u8 = 0x1;
 
 /// Bitfield on register `SMCR`
-pub const SE: *mut u8 = 0x1 as *mut u8;
+pub const SM: u8 = 0xE;
 
 /// Bitfield on register `SPCR`
-pub const DORD: *mut u8 = 0x20 as *mut u8;
+pub const SPIE: u8 = 0x80;
 
 /// Bitfield on register `SPCR`
-pub const MSTR: *mut u8 = 0x10 as *mut u8;
+pub const SPR: u8 = 0x3;
 
 /// Bitfield on register `SPCR`
-pub const SPR: *mut u8 = 0x3 as *mut u8;
+pub const MSTR: u8 = 0x10;
 
 /// Bitfield on register `SPCR`
-pub const SPIE: *mut u8 = 0x80 as *mut u8;
+pub const SPE: u8 = 0x40;
 
 /// Bitfield on register `SPCR`
-pub const SPE: *mut u8 = 0x40 as *mut u8;
+pub const CPHA: u8 = 0x4;
 
 /// Bitfield on register `SPCR`
-pub const CPOL: *mut u8 = 0x8 as *mut u8;
+pub const DORD: u8 = 0x20;
 
 /// Bitfield on register `SPCR`
-pub const CPHA: *mut u8 = 0x4 as *mut u8;
+pub const CPOL: u8 = 0x8;
 
 /// Bitfield on register `SPMCSR`
-pub const SPMEN: *mut u8 = 0x1 as *mut u8;
+pub const LBSET: u8 = 0x8;
 
 /// Bitfield on register `SPMCSR`
-pub const PGWRT: *mut u8 = 0x4 as *mut u8;
+pub const PGERS: u8 = 0x2;
 
 /// Bitfield on register `SPMCSR`
-pub const SPMIE: *mut u8 = 0x80 as *mut u8;
+pub const SPMEN: u8 = 0x1;
 
 /// Bitfield on register `SPMCSR`
-pub const PGERS: *mut u8 = 0x2 as *mut u8;
+pub const SPMIE: u8 = 0x80;
 
 /// Bitfield on register `SPMCSR`
-pub const SIGRD: *mut u8 = 0x20 as *mut u8;
+pub const RWWSB: u8 = 0x40;
 
 /// Bitfield on register `SPMCSR`
-pub const RWWSB: *mut u8 = 0x40 as *mut u8;
+pub const SIGRD: u8 = 0x20;
 
 /// Bitfield on register `SPMCSR`
-pub const LBSET: *mut u8 = 0x8 as *mut u8;
+pub const RWWSRE: u8 = 0x10;
 
 /// Bitfield on register `SPMCSR`
-pub const RWWSRE: *mut u8 = 0x10 as *mut u8;
+pub const PGWRT: u8 = 0x4;
 
 /// Bitfield on register `SPSR`
-pub const WCOL: *mut u8 = 0x40 as *mut u8;
+pub const WCOL: u8 = 0x40;
 
 /// Bitfield on register `SPSR`
-pub const SPIF: *mut u8 = 0x80 as *mut u8;
+pub const SPIF: u8 = 0x80;
 
 /// Bitfield on register `SPSR`
-pub const SPI2X: *mut u8 = 0x1 as *mut u8;
+pub const SPI2X: u8 = 0x1;
 
 /// Bitfield on register `SREG`
-pub const Z: *mut u8 = 0x2 as *mut u8;
+pub const T: u8 = 0x40;
 
 /// Bitfield on register `SREG`
-pub const V: *mut u8 = 0x8 as *mut u8;
+pub const V: u8 = 0x8;
 
 /// Bitfield on register `SREG`
-pub const I: *mut u8 = 0x80 as *mut u8;
+pub const Z: u8 = 0x2;
 
 /// Bitfield on register `SREG`
-pub const H: *mut u8 = 0x20 as *mut u8;
+pub const S: u8 = 0x10;
 
 /// Bitfield on register `SREG`
-pub const N: *mut u8 = 0x4 as *mut u8;
+pub const C: u8 = 0x1;
 
 /// Bitfield on register `SREG`
-pub const T: *mut u8 = 0x40 as *mut u8;
+pub const I: u8 = 0x80;
 
 /// Bitfield on register `SREG`
-pub const S: *mut u8 = 0x10 as *mut u8;
+pub const H: u8 = 0x20;
 
 /// Bitfield on register `SREG`
-pub const C: *mut u8 = 0x1 as *mut u8;
+pub const N: u8 = 0x4;
 
 /// Bitfield on register `TCCR0A`
-pub const ICNC0: *mut u8 = 0x20 as *mut u8;
+pub const ICS0: u8 = 0x8;
 
 /// Bitfield on register `TCCR0A`
-pub const WGM00: *mut u8 = 0x1 as *mut u8;
+pub const ICEN0: u8 = 0x40;
 
 /// Bitfield on register `TCCR0A`
-pub const ICEN0: *mut u8 = 0x40 as *mut u8;
+pub const WGM00: u8 = 0x1;
 
 /// Bitfield on register `TCCR0A`
-pub const TCW0: *mut u8 = 0x80 as *mut u8;
+pub const TCW0: u8 = 0x80;
 
 /// Bitfield on register `TCCR0A`
-pub const ICES0: *mut u8 = 0x10 as *mut u8;
+pub const ICES0: u8 = 0x10;
 
 /// Bitfield on register `TCCR0A`
-pub const ICS0: *mut u8 = 0x8 as *mut u8;
+pub const ICNC0: u8 = 0x20;
 
 /// Bitfield on register `TCCR0B`
-pub const CS01: *mut u8 = 0x2 as *mut u8;
+pub const CS00: u8 = 0x1;
 
 /// Bitfield on register `TCCR0B`
-pub const CS02: *mut u8 = 0x4 as *mut u8;
+pub const CS02: u8 = 0x4;
 
 /// Bitfield on register `TCCR0B`
-pub const CS00: *mut u8 = 0x1 as *mut u8;
+pub const CS01: u8 = 0x2;
 
 /// Bitfield on register `TCCR1A`
-pub const ICNC1: *mut u8 = 0x20 as *mut u8;
+pub const TCW1: u8 = 0x80;
 
 /// Bitfield on register `TCCR1A`
-pub const WGM10: *mut u8 = 0x1 as *mut u8;
+pub const ICNC1: u8 = 0x20;
 
 /// Bitfield on register `TCCR1A`
-pub const TCW1: *mut u8 = 0x80 as *mut u8;
+pub const WGM10: u8 = 0x1;
 
 /// Bitfield on register `TCCR1A`
-pub const ICS1: *mut u8 = 0x8 as *mut u8;
+pub const ICES1: u8 = 0x10;
 
 /// Bitfield on register `TCCR1A`
-pub const ICEN1: *mut u8 = 0x40 as *mut u8;
+pub const ICEN1: u8 = 0x40;
 
 /// Bitfield on register `TCCR1A`
-pub const ICES1: *mut u8 = 0x10 as *mut u8;
+pub const ICS1: u8 = 0x8;
 
 /// Bitfield on register `TCCR1B`
-pub const CS: *mut u8 = 0x7 as *mut u8;
+pub const CS: u8 = 0x7;
 
 /// Bitfield on register `TIFR0`
-pub const TOV0: *mut u8 = 0x1 as *mut u8;
+pub const OCF0A: u8 = 0x2;
 
 /// Bitfield on register `TIFR0`
-pub const OCF0B: *mut u8 = 0x4 as *mut u8;
+pub const OCF0B: u8 = 0x4;
 
 /// Bitfield on register `TIFR0`
-pub const OCF0A: *mut u8 = 0x2 as *mut u8;
+pub const ICF0: u8 = 0x8;
 
 /// Bitfield on register `TIFR0`
-pub const ICF0: *mut u8 = 0x8 as *mut u8;
+pub const TOV0: u8 = 0x1;
 
 /// Bitfield on register `TIFR1`
-pub const OCF1B: *mut u8 = 0x4 as *mut u8;
+pub const TOV1: u8 = 0x1;
 
 /// Bitfield on register `TIFR1`
-pub const OCF1A: *mut u8 = 0x2 as *mut u8;
+pub const OCF1A: u8 = 0x2;
 
 /// Bitfield on register `TIFR1`
-pub const ICF1: *mut u8 = 0x8 as *mut u8;
+pub const OCF1B: u8 = 0x4;
 
 /// Bitfield on register `TIFR1`
-pub const TOV1: *mut u8 = 0x1 as *mut u8;
+pub const ICF1: u8 = 0x8;
 
 /// Bitfield on register `TIMSK0`
-pub const TOIE0: *mut u8 = 0x1 as *mut u8;
+pub const TOIE0: u8 = 0x1;
 
 /// Bitfield on register `TIMSK0`
-pub const ICIE0: *mut u8 = 0x8 as *mut u8;
+pub const OCIE0A: u8 = 0x2;
 
 /// Bitfield on register `TIMSK0`
-pub const OCIE0A: *mut u8 = 0x2 as *mut u8;
+pub const OCIE0B: u8 = 0x4;
 
 /// Bitfield on register `TIMSK0`
-pub const OCIE0B: *mut u8 = 0x4 as *mut u8;
+pub const ICIE0: u8 = 0x8;
 
 /// Bitfield on register `TIMSK1`
-pub const TOIE1: *mut u8 = 0x1 as *mut u8;
+pub const TOIE1: u8 = 0x1;
 
 /// Bitfield on register `TIMSK1`
-pub const OCIE1A: *mut u8 = 0x2 as *mut u8;
+pub const OCIE1B: u8 = 0x4;
 
 /// Bitfield on register `TIMSK1`
-pub const OCIE1B: *mut u8 = 0x4 as *mut u8;
+pub const ICIE1: u8 = 0x8;
 
 /// Bitfield on register `TIMSK1`
-pub const ICIE1: *mut u8 = 0x8 as *mut u8;
+pub const OCIE1A: u8 = 0x2;
 
 /// Bitfield on register `TWAMR`
-pub const TWAM: *mut u8 = 0xFE as *mut u8;
+pub const TWAM: u8 = 0xFE;
 
 /// Bitfield on register `TWAR`
-pub const TWGCE: *mut u8 = 0x1 as *mut u8;
+pub const TWGCE: u8 = 0x1;
 
 /// Bitfield on register `TWAR`
-pub const TWA: *mut u8 = 0xFE as *mut u8;
+pub const TWA: u8 = 0xFE;
 
 /// Bitfield on register `TWBCSR`
-pub const TWBCIF: *mut u8 = 0x80 as *mut u8;
+pub const TWBCIF: u8 = 0x80;
 
 /// Bitfield on register `TWBCSR`
-pub const TWBCIE: *mut u8 = 0x40 as *mut u8;
+pub const TWBCIP: u8 = 0x1;
 
 /// Bitfield on register `TWBCSR`
-pub const TWBCIP: *mut u8 = 0x1 as *mut u8;
+pub const TWBCIE: u8 = 0x40;
 
 /// Bitfield on register `TWBCSR`
-pub const TWBDT: *mut u8 = 0x6 as *mut u8;
+pub const TWBDT: u8 = 0x6;
 
 /// Bitfield on register `TWCR`
-pub const TWSTO: *mut u8 = 0x10 as *mut u8;
+pub const TWWC: u8 = 0x8;
 
 /// Bitfield on register `TWCR`
-pub const TWSTA: *mut u8 = 0x20 as *mut u8;
+pub const TWSTA: u8 = 0x20;
 
 /// Bitfield on register `TWCR`
-pub const TWEA: *mut u8 = 0x40 as *mut u8;
+pub const TWINT: u8 = 0x80;
 
 /// Bitfield on register `TWCR`
-pub const TWIE: *mut u8 = 0x1 as *mut u8;
+pub const TWSTO: u8 = 0x10;
 
 /// Bitfield on register `TWCR`
-pub const TWEN: *mut u8 = 0x4 as *mut u8;
+pub const TWEN: u8 = 0x4;
 
 /// Bitfield on register `TWCR`
-pub const TWINT: *mut u8 = 0x80 as *mut u8;
+pub const TWIE: u8 = 0x1;
 
 /// Bitfield on register `TWCR`
-pub const TWWC: *mut u8 = 0x8 as *mut u8;
+pub const TWEA: u8 = 0x40;
 
 /// Bitfield on register `TWSR`
-pub const TWS: *mut u8 = 0xF8 as *mut u8;
+pub const TWPS: u8 = 0x3;
 
 /// Bitfield on register `TWSR`
-pub const TWPS: *mut u8 = 0x3 as *mut u8;
+pub const TWS: u8 = 0xF8;
 
 /// Bitfield on register `VADCSR`
-pub const VADCCIF: *mut u8 = 0x2 as *mut u8;
+pub const VADSC: u8 = 0x4;
 
 /// Bitfield on register `VADCSR`
-pub const VADEN: *mut u8 = 0x8 as *mut u8;
+pub const VADCCIE: u8 = 0x1;
 
 /// Bitfield on register `VADCSR`
-pub const VADSC: *mut u8 = 0x4 as *mut u8;
+pub const VADEN: u8 = 0x8;
 
 /// Bitfield on register `VADCSR`
-pub const VADCCIE: *mut u8 = 0x1 as *mut u8;
+pub const VADCCIF: u8 = 0x2;
 
 /// Bitfield on register `WDTCSR`
-pub const WDP: *mut u8 = 0x27 as *mut u8;
+pub const WDE: u8 = 0x8;
 
 /// Bitfield on register `WDTCSR`
-pub const WDIE: *mut u8 = 0x40 as *mut u8;
+pub const WDCE: u8 = 0x10;
 
 /// Bitfield on register `WDTCSR`
-pub const WDIF: *mut u8 = 0x80 as *mut u8;
+pub const WDIE: u8 = 0x40;
 
 /// Bitfield on register `WDTCSR`
-pub const WDCE: *mut u8 = 0x10 as *mut u8;
+pub const WDP: u8 = 0x27;
 
 /// Bitfield on register `WDTCSR`
-pub const WDE: *mut u8 = 0x8 as *mut u8;
+pub const WDIF: u8 = 0x80;
 
 /// `CLK_SEL_3BIT_EXT` value group
 #[allow(non_upper_case_globals)]

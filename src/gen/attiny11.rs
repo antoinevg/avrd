@@ -8,15 +8,6 @@
 
 #![allow(non_upper_case_globals)]
 
-/// `LOCKBIT` register
-///
-/// Bitfields:
-///
-/// | Name | Mask (binary) |
-/// | ---- | ------------- |
-/// | LB | 110 |
-pub const LOCKBIT: *mut u8 = 0x0 as *mut u8;
-
 /// `LOW` register
 ///
 /// Bitfields:
@@ -28,17 +19,26 @@ pub const LOCKBIT: *mut u8 = 0x0 as *mut u8;
 /// | CKSEL | 111 |
 pub const LOW: *mut u8 = 0x0 as *mut u8;
 
+/// `LOCKBIT` register
+///
+/// Bitfields:
+///
+/// | Name | Mask (binary) |
+/// | ---- | ------------- |
+/// | LB | 110 |
+pub const LOCKBIT: *mut u8 = 0x0 as *mut u8;
+
 /// Analog Comparator Control And Status Register.
 ///
 /// Bitfields:
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | ACI | 10000 |
-/// | ACIE | 1000 |
 /// | ACIS | 11 |
-/// | ACD | 10000000 |
+/// | ACIE | 1000 |
+/// | ACI | 10000 |
 /// | ACO | 100000 |
+/// | ACD | 10000000 |
 pub const ACSR: *mut u8 = 0x8 as *mut u8;
 
 /// Input Pins, Port B.
@@ -56,9 +56,9 @@ pub const PORTB: *mut u8 = 0x18 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | WDP | 111 |
-/// | WDE | 1000 |
 /// | WDTOE | 10000 |
+/// | WDE | 1000 |
+/// | WDP | 111 |
 pub const WDTCR: *mut u8 = 0x21 as *mut u8;
 
 /// Timer Counter 0.
@@ -70,9 +70,9 @@ pub const TCNT0: *mut u8 = 0x32 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
+/// | CS00 | 1 |
 /// | CS01 | 10 |
 /// | CS02 | 100 |
-/// | CS00 | 1 |
 pub const TCCR0: *mut u8 = 0x33 as *mut u8;
 
 /// MCU Status register.
@@ -91,9 +91,9 @@ pub const MCUSR: *mut u8 = 0x34 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | SM | 10000 |
-/// | ISC0 | 11 |
 /// | SE | 100000 |
+/// | ISC0 | 11 |
+/// | SM | 10000 |
 pub const MCUCR: *mut u8 = 0x35 as *mut u8;
 
 /// Timer/Counter Interrupt Flag register.
@@ -120,8 +120,8 @@ pub const TIMSK: *mut u8 = 0x39 as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | INTF0 | 1000000 |
 /// | PCIF | 100000 |
+/// | INTF0 | 1000000 |
 pub const GIFR: *mut u8 = 0x3A as *mut u8;
 
 /// General Interrupt Mask Register.
@@ -140,117 +140,117 @@ pub const GIMSK: *mut u8 = 0x3B as *mut u8;
 ///
 /// | Name | Mask (binary) |
 /// | ---- | ------------- |
-/// | H | 100000 |
 /// | S | 10000 |
+/// | T | 1000000 |
+/// | H | 100000 |
+/// | N | 100 |
+/// | C | 1 |
 /// | V | 1000 |
 /// | I | 10000000 |
 /// | Z | 10 |
-/// | T | 1000000 |
-/// | N | 100 |
-/// | C | 1 |
 pub const SREG: *mut u8 = 0x3F as *mut u8;
 
 /// Bitfield on register `ACSR`
-pub const ACI: *mut u8 = 0x10 as *mut u8;
+pub const ACIS: u8 = 0x3;
 
 /// Bitfield on register `ACSR`
-pub const ACIE: *mut u8 = 0x8 as *mut u8;
+pub const ACIE: u8 = 0x8;
 
 /// Bitfield on register `ACSR`
-pub const ACIS: *mut u8 = 0x3 as *mut u8;
+pub const ACI: u8 = 0x10;
 
 /// Bitfield on register `ACSR`
-pub const ACD: *mut u8 = 0x80 as *mut u8;
+pub const ACO: u8 = 0x20;
 
 /// Bitfield on register `ACSR`
-pub const ACO: *mut u8 = 0x20 as *mut u8;
+pub const ACD: u8 = 0x80;
 
 /// Bitfield on register `GIFR`
-pub const INTF0: *mut u8 = 0x40 as *mut u8;
+pub const PCIF: u8 = 0x20;
 
 /// Bitfield on register `GIFR`
-pub const PCIF: *mut u8 = 0x20 as *mut u8;
+pub const INTF0: u8 = 0x40;
 
 /// Bitfield on register `GIMSK`
-pub const INT0: *mut u8 = 0x40 as *mut u8;
+pub const INT0: u8 = 0x40;
 
 /// Bitfield on register `GIMSK`
-pub const PCIE: *mut u8 = 0x20 as *mut u8;
+pub const PCIE: u8 = 0x20;
 
 /// Bitfield on register `LOCKBIT`
-pub const LB: *mut u8 = 0x6 as *mut u8;
+pub const LB: u8 = 0x6;
 
 /// Bitfield on register `LOW`
-pub const RSTDISBL: *mut u8 = 0x8 as *mut u8;
+pub const RSTDISBL: u8 = 0x8;
 
 /// Bitfield on register `LOW`
-pub const FSTRT: *mut u8 = 0x10 as *mut u8;
+pub const FSTRT: u8 = 0x10;
 
 /// Bitfield on register `LOW`
-pub const CKSEL: *mut u8 = 0x7 as *mut u8;
+pub const CKSEL: u8 = 0x7;
 
 /// Bitfield on register `MCUCR`
-pub const SM: *mut u8 = 0x10 as *mut u8;
+pub const SE: u8 = 0x20;
 
 /// Bitfield on register `MCUCR`
-pub const ISC0: *mut u8 = 0x3 as *mut u8;
+pub const ISC0: u8 = 0x3;
 
 /// Bitfield on register `MCUCR`
-pub const SE: *mut u8 = 0x20 as *mut u8;
+pub const SM: u8 = 0x10;
 
 /// Bitfield on register `MCUSR`
-pub const EXTRF: *mut u8 = 0x2 as *mut u8;
+pub const EXTRF: u8 = 0x2;
 
 /// Bitfield on register `MCUSR`
-pub const PORF: *mut u8 = 0x1 as *mut u8;
+pub const PORF: u8 = 0x1;
 
 /// Bitfield on register `SREG`
-pub const H: *mut u8 = 0x20 as *mut u8;
+pub const S: u8 = 0x10;
 
 /// Bitfield on register `SREG`
-pub const S: *mut u8 = 0x10 as *mut u8;
+pub const T: u8 = 0x40;
 
 /// Bitfield on register `SREG`
-pub const V: *mut u8 = 0x8 as *mut u8;
+pub const H: u8 = 0x20;
 
 /// Bitfield on register `SREG`
-pub const I: *mut u8 = 0x80 as *mut u8;
+pub const N: u8 = 0x4;
 
 /// Bitfield on register `SREG`
-pub const Z: *mut u8 = 0x2 as *mut u8;
+pub const C: u8 = 0x1;
 
 /// Bitfield on register `SREG`
-pub const T: *mut u8 = 0x40 as *mut u8;
+pub const V: u8 = 0x8;
 
 /// Bitfield on register `SREG`
-pub const N: *mut u8 = 0x4 as *mut u8;
+pub const I: u8 = 0x80;
 
 /// Bitfield on register `SREG`
-pub const C: *mut u8 = 0x1 as *mut u8;
+pub const Z: u8 = 0x2;
 
 /// Bitfield on register `TCCR0`
-pub const CS01: *mut u8 = 0x2 as *mut u8;
+pub const CS00: u8 = 0x1;
 
 /// Bitfield on register `TCCR0`
-pub const CS02: *mut u8 = 0x4 as *mut u8;
+pub const CS01: u8 = 0x2;
 
 /// Bitfield on register `TCCR0`
-pub const CS00: *mut u8 = 0x1 as *mut u8;
+pub const CS02: u8 = 0x4;
 
 /// Bitfield on register `TIFR`
-pub const TOV0: *mut u8 = 0x2 as *mut u8;
+pub const TOV0: u8 = 0x2;
 
 /// Bitfield on register `TIMSK`
-pub const TOIE0: *mut u8 = 0x2 as *mut u8;
+pub const TOIE0: u8 = 0x2;
 
 /// Bitfield on register `WDTCR`
-pub const WDP: *mut u8 = 0x7 as *mut u8;
+pub const WDTOE: u8 = 0x10;
 
 /// Bitfield on register `WDTCR`
-pub const WDE: *mut u8 = 0x8 as *mut u8;
+pub const WDE: u8 = 0x8;
 
 /// Bitfield on register `WDTCR`
-pub const WDTOE: *mut u8 = 0x10 as *mut u8;
+pub const WDP: u8 = 0x7;
 
 /// `ANALOG_COMP_INTERRUPT` value group
 #[allow(non_upper_case_globals)]
